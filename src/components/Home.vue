@@ -3,9 +3,11 @@
     <div id="entrie">
 
       <div id="demo-chart">
-        <v-chart data-aos="zoom-in" data-aos-duration="1500" v-log.onur="() => {return 'hi'}" class="chart" :option="option" />
+        <!-- data-aos="zoom-in" data-aos-duration="1500" -->
+        <v-chart v-log.onur="() => {return 'hi'}" class="chart" :option="option" />
         <h2>You can click on the type you want below to see different chart types.</h2>
-        <div data-aos="fade-right" data-aos-duration="1000" class="b-place">
+        <!-- data-aos="fade-right" data-aos-duration="1000" -->
+        <div class="b-place">
           <button @click="ConvertToBar">Bar Chart</button>
           <button @click="ConvertToLine">Line Chart</button>
           <button @click="ConvertToPie">Pie Chart</button>
@@ -13,8 +15,8 @@
           <button @click="ConvertToArea">Area Chart</button>
         </div>
       </div>
-
-      <div data-aos="fade-left" data-aos-duration="1500" class="intro">
+      <!-- data-aos="fade-left" data-aos-duration="1500" -->
+      <div class="intro">
         <h1>A glimpse into the unique world of Monoxia.</h1>
         <p>
           Welcome! You are in the right place to step into the world of graphic design or improve your existing skills. 
@@ -34,8 +36,8 @@
 import VChart, { THEME_KEY } from "vue-echarts";
 import { ref, provide, computed, onMounted, nextTick } from "vue";
 //@ts-ignore
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 // provide(THEME_KEY, "yellow");
 
@@ -93,15 +95,18 @@ const ConvertToPie = () => {
      series: [
     {
       type: 'pie',
-      data: [
+         data: [
+        // @ts-ignore
         {
           value: 335,
           name: 'Direct Visit'
-        },
+           },
+        // @ts-ignore
         {
           value: 234,
           name: 'Union Ad'
-        },
+           },
+        // @ts-ignore
         {
           value: 1548,
           name: 'Search Engine'
@@ -137,6 +142,7 @@ const ConvertToArea = () => {
     {
       data: [10, 22, 28, 23, 19],
       type: 'line',
+      // @ts-ignore
       areaStyle: {
         color: '#09700e',
         opacity: 0.5
@@ -145,6 +151,7 @@ const ConvertToArea = () => {
     {
       data: [25, 14, 23, 35, 10],
       type: 'line',
+      // @ts-ignore
       areaStyle: {
         color: '#0b0970',
         opacity: 0.5
@@ -168,11 +175,12 @@ const option = ref({
 
 });
 
-onMounted(() => {
-  nextTick(() => {
-    AOS.init(); // AOS'u etkinleştirme
-  });
-});
+// 
+// onMounted(() => {
+//   nextTick(() => {
+//     AOS.init(); // AOS'u etkinleştirme
+//   });
+// });
 </script>
 
 <style lang="scss" scoped>

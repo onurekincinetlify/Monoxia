@@ -4,8 +4,8 @@ import router from './router/router';
 import 'bulma';
 import { createPinia } from 'pinia'
 import * as echarts from 'echarts';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 const LogDirective: Directive = {
     created(el:HTMLElement, binding, vnode) {
@@ -46,7 +46,7 @@ const pinia = createPinia();
 const app = createApp(App);
 app.config.globalProperties.$echarts = echarts;
 app.directive('log', LogDirective)
-app.use(AOS);
+// app.use(AOS);
 // v-log
 app.use(router);
 app.use(pinia);
