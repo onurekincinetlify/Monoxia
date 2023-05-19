@@ -175,12 +175,12 @@ const option = ref({
 
 });
 
-// 
-// onMounted(() => {
-//   nextTick(() => {
-//     AOS.init(); // AOS'u etkinleştirme
-//   });
-// });
+ 
+ onMounted(() => {
+   nextTick(() => {
+     AOS.init(); // AOS'u etkinleştirme
+   });
+ });
 </script>
 
 <style lang="scss" scoped>
