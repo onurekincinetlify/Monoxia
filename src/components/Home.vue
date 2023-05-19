@@ -15,6 +15,7 @@
           <button @click="ConvertToArea">Area Chart</button>
         </div>
       </div>
+      <Alertbox />
       <!-- data-aos="fade-left" data-aos-duration="1500" -->
       <div class="intro">
         <h1>A glimpse into the unique world of Monoxia.</h1>
@@ -34,6 +35,8 @@
 
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
+// @ts-ignore
+import Alertbox from "./Alert/AlertBox.vue";
 import { ref, provide, computed, onMounted, nextTick } from "vue";
 //@ts-ignore
 // import AOS from 'aos';

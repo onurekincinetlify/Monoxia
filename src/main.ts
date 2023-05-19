@@ -47,6 +47,7 @@ const app = createApp(App);
 app.config.globalProperties.$echarts = echarts;
 app.directive('log', LogDirective)
 // app.use(AOS);
+// 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
 // v-log
 app.use(router);
 app.use(pinia);
