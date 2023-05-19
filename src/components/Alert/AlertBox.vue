@@ -145,7 +145,7 @@ body {
    background-color:#f4f4f7;
 }
 .active2 {
-    opacity: 0;
+    display: none;
 }
 .notActive2 {
     opacity: 1;
