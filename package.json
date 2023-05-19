@@ -1,0 +1,35 @@
+{
+  "name": "modafinil",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "apexcharts": "^3.40.0",
+    "bulma": "^0.9.4",
+    "echarts": "^5.4.2",
+    "exec": "^0.2.1",
+    "ffmpeg.js": "^4.2.9003",
+    "pinia": "^2.0.0-rc.10",
+    "sass": "^1.62.0",
+    "taucharts": "^1.2.2",
+    "vue": "^3.2.47",
+    "vue-apexcharts": "^1.6.2",
+    "vue-echarts": "^6.5.5",
+    "vue-router": "^4.1.6",
+    "vuepython": "^0.0.18"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.4",
+    "@types/ffmpeg.js": "^3.1.3",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vue-tsc": "^1.2.0"
+  }
+}
