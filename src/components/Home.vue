@@ -4,10 +4,10 @@
 
       <div id="demo-chart">
         <!-- data-aos="zoom-in" data-aos-duration="1500" -->
-        <v-chart data-aos="zoom-in" data-aos-duration="1500" v-log.onur="() => {return 'hi'}" class="chart" :option="option" />
+        <v-chart v-log.onur="() => {return 'hi'}" class="chart" :option="option" />
         <h2>You can click on the type you want below to see different chart types.</h2>
         <!-- data-aos="fade-right" data-aos-duration="1000" -->
-        <div data-aos="fade-right" data-aos-duration="1000" class="b-place">
+        <div class="b-place">
           <button @click="ConvertToBar">Bar Chart</button>
           <button @click="ConvertToLine">Line Chart</button>
           <button @click="ConvertToPie">Pie Chart</button>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <!-- data-aos="fade-left" data-aos-duration="1500" -->
-      <div data-aos="fade-left" data-aos-duration="1500" class="intro">
+      <div class="intro">
         <h1>A glimpse into the unique world of Monoxia.</h1>
         <p>
           Welcome! You are in the right place to step into the world of graphic design or improve your existing skills. 
