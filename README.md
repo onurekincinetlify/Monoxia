@@ -1,4 +1,5 @@
 # Güncelleme Defteri
+![Ekran görüntüsü_2023-05-21_14-30-55](https://github.com/onurekincinetlify/Monoxia/assets/128093143/9ac725c4-0f21-491c-9ff4-a77eabb54a3d)
 
 ## 27-05-2023'de yapılacaklar : Dashboard tasarımı yapılacak.
 ## 26-05-2023'de yapılacaklar : Meşgulüm.
