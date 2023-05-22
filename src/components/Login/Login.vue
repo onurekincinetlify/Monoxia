@@ -1,7 +1,6 @@
 <template>
     <div id="monoxia-login">
-        <SignIn/><br/>
-        <SignUp/>
+        <SignIn />
     </div>
 </template>
 
@@ -10,4 +9,5 @@ import SignIn from './SignIn.vue'
 import SignUp from './SignUp.vue'
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+</style>
