@@ -1,6 +1,6 @@
 # Güncelleme Defteri
 
-## 22-05-2023 Cookie Kutusu LocalStorage'a bağlandı, Logo ve SVG eklendi, klasörlerin ve dosyaların konumları okunabirlik amacıyla tekrar ayarlandı.
+## 22-05-2023 Cookie Kutusu LocalStorage'a bağlandı, Logo ve SVG eklendi, klasörlerin ve dosyaların konumları okunabirlik amacıyla tekrar ayarlandı, Sign In ve Sign Up componentleri tasarlandı ve hata payı en aza düşürüldü, .erez verileri database üzerinde kayıt olmak üzere tekrar düzenlendi.
 ## 19-05-2023 Cookie Kutusu Eklendi.
 ## 18-05-2023 ECharts ve Pinia Projeye eklendi.
 ## 17-05-2023 Beta olarak Navbar(Home, Documentation, About, Contact, Report an issue, Sign up, Log in vs.) Componenti, Footer Componenti ve Router tasarlandı.
