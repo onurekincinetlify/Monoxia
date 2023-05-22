@@ -3,8 +3,7 @@
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <img src="/images/Logo4.png" width="50" height="300">
-                    <h1>MONOXIA</h1>
+                    <img src="/images/Logo/Logo.png" width="128">
                 </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -63,17 +62,5 @@
 
 
 <style lang="scss" scoped>
-$linkColor:rgb(52, 46, 46);
-.monoxia-router {
-    color:$linkColor;
-}
-
-.navbar {
-    .navbar-brand {
-        .navbar-item h1{
-            color:$linkColor;
-        }
-    }
-}
-
+@import '/public/scss/NavbarStyle.scss';
 </style>

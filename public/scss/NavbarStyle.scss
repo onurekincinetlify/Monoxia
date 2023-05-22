@@ -1,0 +1,12 @@
+$linkColor:rgb(52, 46, 46);
+.monoxia-router {
+    color:$linkColor;
+}
+
+.navbar {
+    .navbar-brand {
+        .navbar-item h1{
+            color:$linkColor;
+        }
+    }
+}

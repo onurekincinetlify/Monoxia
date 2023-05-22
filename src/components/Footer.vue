@@ -14,12 +14,6 @@
 
 <script lang="ts" setup></script>
 
-<style scoped>
-    footer{
-        width: 100%;
-        height: auto;
-        position: fixed;
-        bottom: 0;
-        padding: 30px 0px 30px 0px;
-    }
+<style lang="scss" scoped>
+@import '/public/scss/FooterStyle.scss';
 </style>

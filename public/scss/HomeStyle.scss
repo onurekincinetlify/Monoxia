@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,300&display=swap');
+#entrie{
+  padding: 40px 0px 0px 0px;
+  display: flex;
+}
+.chart {
+  width: 700px;
+  height: 400px;
+}
+#demo-chart{
+  flex: 0%;
+  h2 {
+    margin-left: 92px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 13px;
+  }
+}
+#demo-chart button{
+  padding: 10px;
+  border-radius: 10px;
+  background: none;
+  outline: none;
+  border: 1px solid black;
+  font-family: 'Comfortaa', cursive;
+  margin-right: 10px;
+  &:first-of-type{
+    margin-left: 90px;
+  }
+  &:last-of-type{
+    margin-right: 0;
+  }
+}
+.intro {
+  height: auto;
+  width: auto;
+  font-family: 'Comfortaa', cursive;
+  margin-top: 2.9%;
+  flex: 0% 30%;
+  h1{
+    font-size: 30px;
+    margin-bottom: 1.5%;
+  }
+}
