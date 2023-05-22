@@ -1,5 +1,3 @@
-# Güncelleme Defteri
-
 <p align="center">
   <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/a8f8cac0-294d-46ef-befa-3ab9da94b582" alt="Logo4">
 </p>
