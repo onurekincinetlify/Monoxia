@@ -5,7 +5,9 @@
 </template>
 
 <script lang="ts" setup>
+// @ts-ignore
 import SignIn from './SignIn.vue'
+// @ts-ignore
 import SignUp from './SignUp.vue'
 </script>
 

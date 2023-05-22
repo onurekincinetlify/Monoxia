@@ -110,7 +110,7 @@ const pictureUrl = ref(`${obj.hayvan1.picture}`)
       }
       else if (count.value == 3) {
           useCookieStore().acceptCookie();
-          axios.post('https://accessinfo-7464f-default-rtdb.firebaseio.com/data.json', {
+          axios.post('https://monoxia-5c690-default-rtdb.firebaseio.com/cookie.json', {
               // @ts-ignore
               'D-R-S': document.getElementById('vehicle1').checked,
               // DATA READ SAVE
