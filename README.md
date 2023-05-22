@@ -1,3 +1,10 @@
+# Güncelleme Defteri
+
+## 22-05-2023 Cookie Kutusu LocalStorage'a bağlandı.
+## 19-05-2023 Cookie Kutusu Eklendi.
+## 18-05-2023 EChart ve Pinia Projeye eklendi.
+## 17-05-2023 Beta olarak Navbar(Home, Documentation, About, Contact, Report an issue, Sign up, Log in vs.) Componenti, Footer Componenti ve Router tasarlandı.
+
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
