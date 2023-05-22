@@ -1,5 +1,5 @@
 <template>
-   <div id="rootofbox" :class="[{active2:isActive2 === false, notActive2:isActive2 === true}]">
+   <div v-if="!isAccapted" id="rootofbox" :class="[{active2:isActive2 === false, notActive2:isActive2 === true}]">
       <div class="box">
       <div id="header">
          <h1>{{headerText}}</h1>
@@ -29,9 +29,12 @@
 </template>
 
 <script lang="ts" setup>
-import {ref, reactive, watch, onMounted} from 'vue';
+import { ref, reactive, watch, onMounted } from 'vue';
+import { useCookieStore } from '/src/stores/cookieStore';
 import axios from 'axios';
 
+const isAccapted = ref(localStorage.getItem('isCookieAccepted'));
+console.log(isAccapted.value)
 const isActive2 = ref(true);
 const count = ref(1);
 const show = ref(false)
@@ -106,6 +109,7 @@ const pictureUrl = ref(`${obj.hayvan1.picture}`)
          svd.value = "Kaydet"
       }
       else if (count.value == 3) {
+          useCookieStore().acceptCookie();
           axios.post('https://accessinfo-7464f-default-rtdb.firebaseio.com/data.json', {
               // @ts-ignore
               'D-R-S': document.getElementById('vehicle1').checked,
