@@ -1,5 +1,10 @@
 # Güncelleme Defteri
 
+## 27-05-2023'de yapılacaklar : Dashboard tasarımı yapılacak.
+## 26-05-2023'de yapılacaklar : Meşgulüm.
+## 25-05-2023'de yapılacaklar : Login kısmındaki componentler senkonize bir hale getirilecek ve auth işlemleri ayarlanacak.
+## 24-05-2023'de yapılacaklar : Meşgulüm.
+## 23-05-2023'de yapılacaklar : Home üzerindeki chart ve giriş yazısı 2 ayrı component olarak responsive bir şekilde tasarlanacak, About ve Contact Componentleri tasarlanacak ve home üzerine eklenecekler (hash ile gidilebilecek şekilde).
 ![Ekran görüntüsü_2023-05-22_20-10-57](https://github.com/onurekincinetlify/Monoxia/assets/128093143/9828ef4d-bc55-44eb-b4d7-74b57bfb582e)![Ekran görüntüsü_2023-05-22_20-14-02](https://github.com/onurekincinetlify/Monoxia/assets/128093143/58869a21-c1ab-4a51-b644-1d1ea634ffde)![Ekran görüntüsü_2023-05-22_20-16-21](https://github.com/onurekincinetlify/Monoxia/assets/128093143/f820a329-0d36-4697-bda1-d94240a5ab99)
 ## 22-05-2023 Cookie Kutusu LocalStorage'a bağlandı, Logo ve SVG eklendi, klasörlerin ve dosyaların konumları okunabirlik amacıyla tekrar ayarlandı, Sign In ve Sign Up componentleri tasarlandı ve hata payı en aza düşürüldü, çerez verileri database üzerinde kayıt olmak üzere tekrar düzenlendi.
 ![Ekran görüntüsü_2023-05-22_20-22-15](https://github.com/onurekincinetlify/Monoxia/assets/128093143/cc0d1acd-ad1f-49cd-9e37-56e4a30fa26a)<br />
