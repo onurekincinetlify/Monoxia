@@ -2,6 +2,7 @@
   <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/a8f8cac0-294d-46ef-befa-3ab9da94b582" alt="Logo4">
 </p>
 
+<img src="https://www.cypress.io/cypress_logo_social.png" width="300" height="150" alt="sc2">
 ![Ekran görüntüsü_2023-05-25_22-35-49](https://github.com/onurekincinetlify/Monoxia/assets/128093143/31b23b73-af7d-4e4e-86d1-6ceb56f6c06e)
 
 ## 25-05-2023 Cypress E2E Testi Yapıldı
