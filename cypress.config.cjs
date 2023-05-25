@@ -7,4 +7,11 @@ module.exports = {
       // implement node event listeners here
     },
   },
+
+  component: {
+    devServer: {
+      framework: "vue",
+      bundler: "vite",
+    },
+  },
 };
