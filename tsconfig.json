@@ -12,8 +12,6 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["node", "snyk"],
-    "typeRoots": ["node_modules/@types"],
     "paths": {
       "@components": ["./src/components/"],
       "/*": ["./*"]
