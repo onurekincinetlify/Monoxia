@@ -6,6 +6,7 @@
 
 ## 26-05-2023 Kayıt&Giriş Fonksiyonları Ayarlandı 
 
+![Ekran görüntüsü_2023-05-26_20-37-55](https://www.rapid7.com/contentassets/37a0bed2dcd24288beccaa63311e4cd1/snyk-r7.svg?format=webp)
 ![Ekran görüntüsü_2023-05-26_20-37-55](https://github.com/onurekincinetlify/Monoxia/assets/128093143/5b1d2315-b6b1-4d91-8180-e6f44c82c273)
 
 ## SNYK Penetration Testi Yapıldı (Güvenlik Açığı Kapatıldı)
