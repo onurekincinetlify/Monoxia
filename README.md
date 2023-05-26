@@ -9,7 +9,7 @@
 <img src="https://www.cypress.io/cypress_logo_social.png" width="300" height="150" alt="sc2">
 <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/31b23b73-af7d-4e4e-86d1-6ceb56f6c06e" alt="sc1">
 
-## 25-05-2023 Cypress E2E Testi Yapıldı
+## 25-05-2023 Cypress E2E Testi Yapıldı (Şuanlık %100 Kullanıcı Davranışları İçin Uyumlu)
 
 <ul>
    <li>27-05-2023'de yapılacaklar : Dashboard tasarımı yapılacak.</li>
