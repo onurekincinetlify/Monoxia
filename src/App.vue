@@ -7,11 +7,11 @@
 </template>
 
 <script setup lang="ts">
-import {
-  RouterView, RouterLink} from 'vue-router';
+import { RouterView, RouterLink} from 'vue-router';
 import { useRoute, useRouter } from 'vue-router';
 import Navbar from '/src/components/Navbar.vue';
 import Footer from '/src/components/Footer.vue';
+
 const route = useRoute();
 const router = useRouter();
 </script>
