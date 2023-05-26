@@ -2,6 +2,10 @@
   <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/a8f8cac0-294d-46ef-befa-3ab9da94b582" alt="Logo4">
 </p>
 
+![Ekran görüntüsü_2023-05-26_22-30-45](https://github.com/onurekincinetlify/Monoxia/assets/128093143/6ca22ab9-227b-47cf-8a40-bfc303807430)
+
+## 26-05-2023 Kayıt&Giriş Fonksiyonları Ayarlandı 
+
 ![Ekran görüntüsü_2023-05-26_20-37-55](https://github.com/onurekincinetlify/Monoxia/assets/128093143/5b1d2315-b6b1-4d91-8180-e6f44c82c273)
 
 ## SNYK Penetration Testi Yapıldı (Güvenlik Açığı Kapatıldı)
@@ -10,14 +14,6 @@
 <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/31b23b73-af7d-4e4e-86d1-6ceb56f6c06e" alt="sc1">
 
 ## 25-05-2023 Cypress E2E Testi Yapıldı (Şuanlık %100 Kullanıcı Davranışları İçin Uyumlu)
-
-<ul>
-   <li>27-05-2023'de yapılacaklar : Dashboard tasarımı yapılacak.</li>
-   <li>26-05-2023'de yapılacaklar : Meşgul.</li>
-   <li>25-05-2023'de yapılacaklar : Login kısmındaki componentler senkonize bir hale getirilecek ve auth işlemleri ayarlanacak.</li>
-   <li>24-05-2023'de yapılacaklar : Meşgul.</li>
-   <li>23-05-2023'de yapılacaklar : Home üzerindeki chart ve giriş yazısı 2 ayrı component olarak responsive bir şekilde tasarlanacak, About ve Contact Componentleri tasarlanacak ve home üzerine eklenecekler (hash ile gidilebilecek şekilde).</li>
-</ul>
 
 <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/9828ef4d-bc55-44eb-b4d7-74b57bfb582e" alt="sc1">
 <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/58869a21-c1ab-4a51-b644-1d1ea634ffde" alt="sc2">
