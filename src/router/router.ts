@@ -13,7 +13,16 @@ const router = createRouter({
         { path: '/Docs', name: 'Docs', component: () => import("../components/Navbar/Docs.vue") },
         { path: '/Report', name: 'ReportIssue', component: () => import("../components/Navbar/ReportIssue.vue") },
         { path: '/Login', name: 'Login', component: () => import('../components/Login/Login.vue') },
+        { path: '/Dashboard', name: 'Dashboard', component: () => import('../components/Dashboard/Dashboard.vue')}
     ]
 });
+
+router.beforeEach((to, from, next) => {
+    if (to.name == 'Login' && localStorage.getItem('registered')) {
+        next({name: 'Dashboard'})
+    } else {
+        next(true)
+    }
+})
 
 export default router;

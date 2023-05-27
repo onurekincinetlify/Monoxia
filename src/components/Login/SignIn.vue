@@ -8,17 +8,20 @@
             <input id="password" :class="{validFormat: anyIssueInPassword === false, invalidFormat: anyIssueInPassword === true}" v-model="passwordData" class="input is-normal" type="password" placeholder="Enter your account password" />
             <small class="miniInfoText" v-if="passwordHiddenTips">The password must be at least 8 characters long.</small>
             <div class="fields">
-                <a>Don't have an account?</a>
+                <a @click="emitEvent">Don't have an account?</a>
             </div>
         </div>
         <div class="buttonWrapper">
-            <input @click="loginFn" :class="`${shakeAsync}`" class="btn" type="submit" value="Login" />
+            <input @click.prevent="loginFn" :class="`${shakeAsync}`" class="btn" type="submit" value="Login" />
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue";
+import { ref, watch,defineEmits } from "vue";
+import axios from "axios"
+import router from "/src/router/router";
+import { useCookieStore } from '/src/stores/cookieStore';
 
 const mailData = ref('')
 const passwordData = ref('')
@@ -36,9 +39,35 @@ async function clearShake() {
     shakeAsync.value = ``
 }
 
+const emit = defineEmits({
+    info: (value: string) => value
+});
+const emitEvent = () => {
+    emit('info', 'signup')
+}
+
 const loginFn = async () => {
     if (anyIssueInMail.value === false && anyIssueInPassword.value === false) {
-        // giriş kodları
+        // giriş kodları https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY] AIzaSyCrvH7f7hwIL6dGHKqXSY5JU2bzHPSm9BU
+        axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCrvH7f7hwIL6dGHKqXSY5JU2bzHPSm9BU", {
+            email: mailData.value,
+            password: passwordData.value,
+            returnSecureToken: true 
+        }).then((e) => {
+            console.log(e)
+            if (e.status === 200) {
+                localStorage.setItem('userCookie', e.data.localId)
+                localStorage.setItem('registered', e.data.registered)
+                localStorage.setItem('email', e.data.email)
+                console.log(e)
+                useCookieStore().setRegistered()
+                router.push('/Dashboard')
+            } else if(e.status === 400) {
+                router.push('/Login')
+            } else {
+                router.push('/Login')
+            }
+        })
     } else {
         if (anyIssueInMail.value === false) {
             passwordHiddenTips.value = true

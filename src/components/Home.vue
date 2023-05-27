@@ -5,6 +5,7 @@
       <div id="demo-chart">
         <!-- data-aos="zoom-in" data-aos-duration="1500" -->
         <v-chart v-log.onur="() => {return 'hi'}" class="chart" :option="option" />
+
         <h2>You can click on the type you want below to see different chart types.</h2>
         <!-- data-aos="fade-right" data-aos-duration="1000" -->
         <div class="b-place">
@@ -37,6 +38,7 @@
 import VChart, { THEME_KEY } from "vue-echarts";
 // @ts-ignore
 import Alertbox from "./Alert/AlertBox.vue";
+
 import { ref, provide, computed, onMounted, nextTick } from "vue";
 //@ts-ignore
 // import AOS from 'aos';

@@ -42,14 +42,16 @@
             </div>
         </div>
     </div>
-
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-primary">
-            <router-link class="monoxia-router" to="/Login">Sign Up</router-link>
+            <router-link class="monoxia-router" to="/Login">
+                <p v-if="!useCookieStore().$state.registered && !isr">Sign Up</p>
+                <p v-else>Dashboard</p>
+            </router-link>
           </a>
-          <a class="button is-light">
+          <a v-if="!useCookieStore().$state.registered && !isr" class="button is-light">
             <router-link class="monoxia-router" to="/Login">Log In</router-link>
           </a>
         </div>
@@ -59,6 +61,13 @@
 </nav>
     </div>
 </template>
+
+<script lang="ts" setup>
+import { reactive, ref, watch } from "vue";
+import { useCookieStore } from '/src/stores/cookieStore';
+
+const isr = ref(localStorage.getItem('registered'))
+</script>
 
 
 <style lang="scss" scoped>
