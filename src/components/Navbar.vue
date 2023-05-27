@@ -47,11 +47,11 @@
         <div class="buttons">
           <a class="button is-primary">
             <router-link class="monoxia-router" to="/Login">
-                <p v-if="!useCookieStore().$state.registered && !isr">Sign Up</p>
+                <p v-if="!useCookieStore().$state.registered && !state.isr">Sign Up</p>
                 <p v-else>Dashboard</p>
             </router-link>
           </a>
-          <a v-if="!useCookieStore().$state.registered && !isr" class="button is-light">
+          <a v-if="!useCookieStore().$state.registered && !state.isr" class="button is-light">
             <router-link class="monoxia-router" to="/Login">Log In</router-link>
           </a>
         </div>
@@ -63,10 +63,13 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, watch } from "vue";
+import { onMounted, reactive, ref, watch } from "vue";
 import { useCookieStore } from '/src/stores/cookieStore';
 
-const isr = ref(localStorage.getItem('registered'))
+const state = reactive({
+    isr: localStorage.getItem('registered'),
+})
+
 </script>
 
 

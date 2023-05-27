@@ -12,6 +12,9 @@ export const useCookieStore = defineStore('cookie', {
     },
     setRegistered() {
       this.registered = true;
+    },
+    exit() {
+      this.registered = false;
     }
   },
 });

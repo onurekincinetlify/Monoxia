@@ -59,7 +59,6 @@ const loginFn = async () => {
                 localStorage.setItem('userCookie', e.data.localId)
                 localStorage.setItem('registered', e.data.registered)
                 localStorage.setItem('email', e.data.email)
-                console.log(e)
                 useCookieStore().setRegistered()
                 router.push('/Dashboard')
             } else if(e.status === 400) {
