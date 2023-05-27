@@ -3,7 +3,7 @@
 </p>
 
 <ul>
-  <h2>Startup'ın bitmesine son 21 gün</h2>
+  <h2>Startup'ın bitmesine son 21 gün (17 Haziran)</h2>
   <li>27-05-2023 : Dashboard yönlendirmesi ve giriş fonksiyonu'nun navbar ile olan reaktivitesi ayarlandı. Hesaptan çıkış yeri eklendi.</li>
   <li>26-05-2023 : Kayıt&Giriş Fonksiyonları Ayarlandı, SNYK Penetration Testi Yapıldı (ReDos Güvenlik Açığı Kapatıldı). </li>
   <li>25-05-2023 : Cypress E2E Testi Yapıldı (Şuanlık %100 Kullanıcı Davranışları İçin Uyumlu Ve Netlify Üzerinde QA WOLF Testleri de Yapılıyor).</li>
