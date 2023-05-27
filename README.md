@@ -3,8 +3,8 @@
 </p>
 
 <ul>
-  <li>26-05-2023 : Kayıt&Giriş Fonksiyonları Ayarlandı. </li>
-  <li>26-05-2023 : SNYK Penetration Testi Yapıldı (ReDos Güvenlik Açığı Kapatıldı).</li>
+  <li>27-05-2023 : Dashboard yönlendirmesi ve giriş fonksiyonu'nun navbar ile olan reaktivitesi ayarlandı. </li>
+  <li>26-05-2023 : Kayıt&Giriş Fonksiyonları Ayarlandı, SNYK Penetration Testi Yapıldı (ReDos Güvenlik Açığı Kapatıldı). </li>
   <li>25-05-2023 : Cypress E2E Testi Yapıldı (Şuanlık %100 Kullanıcı Davranışları İçin Uyumlu Ve Netlify Üzerinde QA WOLF Testleri de Yapılıyor).</li>
   <li>22-05-2023 : Cookie Kutusu LocalStorage'a bağlandı, Logo ve SVG eklendi, klasörlerin ve dosyaların konumları okunabirlik amacıyla tekrar ayarlandı, Sign In ve Sign Up componentleri tasarlandı ve hata payı en aza düşürüldü, çerez verileri database üzerinde kayıt olmak üzere tekrar düzenlendi.</li>
   <li>19-05-2023 : Cookie Kutusu Eklendi.</li>
