@@ -3,6 +3,7 @@
     <div class="mobile-alert">
       <Navbar/>
       <h1>Our website currently does not have mobile support, so to avoid many errors and incompatibilities, our website is currently closed for mobile devices. Please try accessing it from a computer.</h1>
+      <Footer/>
     </div>
   </div>
   <div v-else>
