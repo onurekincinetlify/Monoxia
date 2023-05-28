@@ -30,12 +30,15 @@
       </div>
     
     </div>
-    
+    <!-- <card /> -->
+    <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
+import card from '/src/components/Cards.vue';
+import Footer from '/src/components/Footer.vue';
 // @ts-ignore
 import Alertbox from "./Alert/AlertBox.vue";
 
