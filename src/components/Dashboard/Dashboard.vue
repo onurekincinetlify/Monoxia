@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .left-navbar{
-    position: absolute;
+    position: fixed;
     border: 3px solid rgb(228, 224, 224);
     box-shadow: 3px 3px 3px 3px rgb(242, 238, 238);
     width: 230px;
@@ -51,6 +51,17 @@
 .exit button{
     width: 100%;
 }
+
+.monitor{
+    border: 2px solid rgb(201, 201, 201);
+    box-shadow: 0px 0px 40px 15px rgb(242, 238, 238);
+    width: 1000px;
+    height: 545px;
+    float: right;
+    margin-top: 2.8%;
+    margin-right: 3%;
+    border-radius: 10px;
+}
 </style>
 
 <template>
@@ -62,39 +73,50 @@
             </div>
             <div class="fields">
                 <div class="field">
-                    <a><i class='bx bx-user'></i>Profile</a>
+                    <a @click="currentComponent=Profile"><i class='bx bx-user'></i>Profile</a>
                 </div>
                 <div class="field">
-                    <a><i class='bx bx-line-chart' ></i>Charts</a>
+                    <a @click="currentComponent=Charts"><i class='bx bx-line-chart' ></i>Charts</a>
                 </div>
                 <div class="field">
-                    <a><i class='bx bxs-analyse' ></i>Analytics</a>
+                    <a @click="currentComponent=Analytics"><i class='bx bxs-analyse' ></i>Analytics</a>
                 </div>
                 <div class="field">
-                    <a><i class='bx bx-pyramid'></i>Formulas</a>
+                    <a @click="currentComponent=Formulas"><i class='bx bx-pyramid'></i>Formulas</a>
                 </div>
                 <div class="field">
-                    <a><i class='bx bx-book' ></i>Subjects</a>
+                    <a @click="currentComponent=Subjects"><i class='bx bx-book' ></i>Subjects</a>
                 </div>
                 <div class="field">
-                    <a><i class='bx bx-server'></i>Configuartion</a>
+                    <a @click="currentComponent=Configure"><i class='bx bx-server'></i>Configuartion</a>
                 </div>
                 <div class="field">
-                    <a><i class='bx bx-cog'></i>Settings</a>
+                    <a @click="currentComponent=Settings"><i class='bx bx-cog'></i>Settings</a>
                 </div>
             </div>
             <div class="exit">
                 <button @click="exit" class="button" style="color:red;">Log Out</button>
             </div>
         </div>
+        <div class="monitor">
+            <component :is="currentComponent" />
+        </div>
     </div>    
 </template>
 
 <script lang="ts" setup>
+//foksiyonel component değişimi {}
 import { ref } from "vue";
-import router from "/src/router/router";
 import { useCookieStore } from "/src/stores/cookieStore";
+import Settings from './Navbar/Settings.vue';
+import Charts from './Navbar/Charts.vue';
+import Analytics from './Navbar/Analytics.vue';
+import Formulas from './Navbar/Formulas.vue';
+import Subjects from './Navbar/Subjects.vue';
+import Configure from './Navbar/Configure.vue';
+import Profile from './Navbar/Profile.vue';
 
+const currentComponent = ref(Settings);
 const localEmail = ref(localStorage.getItem('email'));
 const entrie:any = ref(localEmail.value?.split("@"));
 const emailName = ref(entrie.value[0]);
