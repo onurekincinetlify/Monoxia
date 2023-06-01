@@ -14,7 +14,7 @@
       </div>
       <label class="label">Change Email : </label>
       <div class="input-wrapper">
-        <input id="newEmail" class="input" type="text" placeholder="ares@outlook.com">
+        <input v-model="newEmail" id="newEmail" class="input" type="text" placeholder="ares@outlook.com">
         <button @click="changeEmail" class="button">Save</button>
       </div>
       <label class="label">Verify Your Email : </label>
@@ -40,9 +40,9 @@ import { getAuth, updateEmail, onAuthStateChanged } from "firebase/auth";
 
 const defaultImg = ref('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/512px-Circle-icons-profile.svg.png?20160314153816')
 const auth = getAuth();
+const newEmail:any = ref(null)
 
 const changeEmail = () => {
-    const newEmail:any = ref(document.getElementById('newEmail').value)
   onAuthStateChanged(auth, (user) => {
     if (user) {
       updateEmail(user, newEmail)
