@@ -31,6 +31,7 @@ router.beforeEach((to, from, next) => {
     if (to.name == 'Dashboard' && localStorage.getItem('registered') === null) {
         next({name: 'Login'})
     } else {
+        
         next(true)
     }
 })

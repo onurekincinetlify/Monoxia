@@ -22,9 +22,13 @@ import { ref, watch,defineEmits } from "vue";
 import axios from "axios"
 import router from "/src/router/router";
 import { useCookieStore } from '/src/stores/cookieStore';
-import db from '../../firebase'
+import {db} from '../../firebase'
 import { collection, query, where, getDocs } from "firebase/firestore";
 import eventBus from "/src/stores/eventBus";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+
+const auth = getAuth();
 
 const mailData = ref('')
 const passwordData = ref('')
@@ -49,6 +53,17 @@ const emitEvent = () => {
     emit('info', 'signup')
 }
 
+const signInUser = async (email:any, password:any) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    console.log("Oturum açma işlemi başarılı");
+    // Oturum açma işlemi başarılı olduktan sonra e-posta adresini güncelleyebilirsiniz
+    // Örneğin, updateUserEmail("yeni_email@example.com") şeklinde bir fonksiyon çağırabilirsiniz
+  } catch (error) {
+    console.log("Oturum açma işlemi başarısız", error);
+  }
+};
+
 const loginFn = async () => {
     if (anyIssueInMail.value === false && anyIssueInPassword.value === false) {
         // giriş kodları https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY] AIzaSyCrvH7f7hwIL6dGHKqXSY5JU2bzHPSm9BU
@@ -62,6 +77,7 @@ const loginFn = async () => {
                 localStorage.setItem('registered', e.data.registered)
                 localStorage.setItem('email', e.data.email)
                 useCookieStore().setRegistered()
+                signInUser(mailData.value, passwordData.value);
                 const filteredQuery = query(
                     collection(db, "addedExtra"),
                      where("localId", "==", e.data.localId) 
@@ -70,6 +86,7 @@ const loginFn = async () => {
                     const querySnapshot = await getDocs(filteredQuery);
                         querySnapshot.forEach((doc) => {
                             const username = doc.data().username
+                            localStorage.setItem('username', username)
                             eventBus.emit('ProfileUsername', username)
                          });
                     };

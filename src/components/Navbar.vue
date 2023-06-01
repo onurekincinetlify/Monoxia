@@ -63,12 +63,24 @@
 </template>
 
 <script lang="ts" setup>
+import { getDoc, doc } from "firebase/firestore";
 import { onMounted, reactive, ref, watch } from "vue";
 import { useCookieStore } from '/src/stores/cookieStore';
+import {db} from '../firebase'
 
 const state = reactive({
     isr: localStorage.getItem('registered'),
 })
+
+// let user:any;
+
+// const docSnap = await getDoc(doc(db, 'addedExtra', localStorage.getItem('userCookie') as any))
+
+//       if (docSnap.exists()) {
+//         user = ref(docSnap.data().username)
+//       } else {
+//         console.log('Document does not exist')
+//       }
 
 </script>
 

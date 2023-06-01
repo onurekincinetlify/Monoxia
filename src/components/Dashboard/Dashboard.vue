@@ -34,7 +34,9 @@
             </div>
         </div>
         <div class="monitor">
-            <component :is="currentComponent" />
+            <keep-alive>
+                <component :is="currentComponent" />
+            </keep-alive>
         </div>
     </div>    
 </template>
@@ -57,7 +59,7 @@ const currentComponent = shallowRef(Settings);
 const localEmail = ref(localStorage.getItem('email'));
 const entrie: any = ref(localEmail.value?.split("@"));
 const emailName = ref(entrie.value[0]);
-const newUsername:any = ref(useCookieStore().username);
+const newUsername:any = ref(localStorage.getItem('username'));
 const exit = () => {
     localStorage.removeItem('registered')
     localStorage.removeItem('email')
