@@ -22,6 +22,9 @@ import { ref, watch,defineEmits } from "vue";
 import axios from "axios"
 import router from "/src/router/router";
 import { useCookieStore } from '/src/stores/cookieStore';
+import db from '../../firebase'
+import { collection, query, where, getDocs } from "firebase/firestore";
+import eventBus from "/src/stores/eventBus";
 
 const mailData = ref('')
 const passwordData = ref('')
@@ -54,12 +57,23 @@ const loginFn = async () => {
             password: passwordData.value,
             returnSecureToken: true 
         }).then((e) => {
-            console.log(e)
             if (e.status === 200) {
                 localStorage.setItem('userCookie', e.data.localId)
                 localStorage.setItem('registered', e.data.registered)
                 localStorage.setItem('email', e.data.email)
                 useCookieStore().setRegistered()
+                const filteredQuery = query(
+                    collection(db, "addedExtra"),
+                     where("localId", "==", e.data.localId) 
+                );
+                const getData = async () => {
+                    const querySnapshot = await getDocs(filteredQuery);
+                        querySnapshot.forEach((doc) => {
+                            const username = doc.data().username
+                            eventBus.emit('ProfileUsername', username)
+                         });
+                    };
+                getData()
                 router.push('/Dashboard')
             } else if(e.status === 400) {
                 router.push('/Login')

@@ -15,20 +15,14 @@
 <script setup lang="ts">
 import { RouterView, RouterLink} from 'vue-router';
 import { useRoute, useRouter } from 'vue-router';
+// @ts-ignore
 import Navbar from '/src/components/Navbar.vue';
 import Footer from '/src/components/Footer.vue';
-import card from '/src/components/Cards.vue';
 
 const route = useRoute();
 const router = useRouter();
 
 var userAgent = navigator.userAgent;
-
-if (userAgent.match(/Android/i) || userAgent.match(/webOS/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPad/i) || userAgent.match(/iPod/i) || userAgent.match(/BlackBerry/i) || userAgent.match(/Windows Phone/i)) {
-  console.log("Mobil cihaz");
-} else {
-  console.log("Masaüstü cihaz");
-}
 </script>
 
 <style lang="scss">

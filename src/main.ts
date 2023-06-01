@@ -12,6 +12,5 @@ app.use(pinia);
 const cookieStore = useCookieStore();
 app.config.globalProperties.$cookieStore = cookieStore;
 app.config.globalProperties.$echarts = echarts;
-
 app.use(router);
 app.mount('#app');

@@ -3,7 +3,8 @@ import { defineStore } from 'pinia';
 export const useCookieStore = defineStore('cookie', {
   state: () => ({
     isCookieAccepted: localStorage.getItem('isCookieAccepted') === 'true',
-    registered: false
+    registered: false,
+    username: localStorage.getItem('username')
   }),
   actions: {
     acceptCookie() {
@@ -15,6 +16,9 @@ export const useCookieStore = defineStore('cookie', {
     },
     exit() {
       this.registered = false;
+    },
+    setUsername(usernameValue:any) {
+      this.username = usernameValue
     }
   },
 });

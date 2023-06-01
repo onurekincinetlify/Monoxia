@@ -1,0 +1,31 @@
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+.button {
+  margin-left: 10px;
+  border-color: rgba(88, 87, 87, 0.515);
+}
+.settings {
+    padding: 30px;
+    .setting-options {
+        img{
+            width: 88px;
+            height: 87px;
+        }
+        .input:not([type="file"]){
+            width: 300px;
+            border-color: rgba(88, 87, 87, 0.515);
+        }
+        .input:first-of-type{
+            display: block;
+            margin: 1em 0;
+        }
+        label:first-of-type{
+            padding-bottom: 2px;
+        }
+        label:not(:first-child) {
+            padding: 15px 0px 2px 0px;
+    }
+  }
+}

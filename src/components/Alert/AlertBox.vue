@@ -34,16 +34,15 @@ import { useCookieStore } from '/src/stores/cookieStore';
 import axios from 'axios';
 
 const isAccapted = ref(localStorage.getItem('isCookieAccepted'));
-console.log(isAccapted.value)
 const isActive2 = ref(true);
 const count = ref(1);
 const show = ref(false)
 const svd = ref("Sonraki")
 const bvn = ref("")
 
-watch(bvn, (newValue, oldValue) => {
-   console.log({newValue, oldValue})
-})
+// watch(bvn, (newValue, oldValue) => {
+//    console.log({newValue, oldValue})
+// })
 
 const obj = reactive({
    hayvan1 : {
@@ -126,12 +125,10 @@ const pictureUrl = ref(`${obj.hayvan1.picture}`)
             // DATA DELETE CHANGE
          })
         .then((res) => {
-            console.log(res)
             isActive2.value = false
         })
               .catch((error) => {
-            isActive2.value = false
-          console.log(error)
+               isActive2.value = false
         })
          // count.value = 1
          // headerText.value = `${obj.hayvan1.name}`;
