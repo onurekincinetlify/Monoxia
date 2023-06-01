@@ -5,6 +5,7 @@
 <ul>
   <h2>Bitiş Tarihi : 17 Haziran</h2>
   <h2>Başlangıç Tarihi : 17 Mayıs</h2>
+  <li>01-06-2023 : Dashboard'ın Profil bölümü kısmen tamamlandı. Profil bölümünün kullanıcı adı değiştirme kısmı yapıldı, Email değiştirme kısmı yapıldı, Profil Fotoğafı ekleme kısmı yapıldı, Email doğrulama kısmı henüz tamamlanmadı.</li>
   <li>28-05-2023 : Dashboard'ın Navbar'ı kısmen tamamlandı. Dashboard'ın Monitör'ü kısmen tamamlandı. Mobil cihazlar için uyarı ekranı kondu.</li>
   <li>27-05-2023 : Dashboard yönlendirmesi ve giriş fonksiyonu'nun navbar ile olan reaktivitesi ayarlandı. Hesaptan çıkış yeri eklendi.</li>
   <li>26-05-2023 : Kayıt&Giriş Fonksiyonları Ayarlandı, SNYK Penetration Testi Yapıldı (ReDos Güvenlik Açığı Kapatıldı). </li>
