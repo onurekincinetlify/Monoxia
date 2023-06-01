@@ -5,7 +5,7 @@
 <ul>
   <h2>Bitiş Tarihi : 17 Haziran</h2>
   <h2>Başlangıç Tarihi : 17 Mayıs</h2>
-  <li>28-05-2023 : Dashboard'ın Navbar'ı kısmen tamamlandı.</li>
+  <li>28-05-2023 : Dashboard'ın Navbar'ı kısmen tamamlandı. Dashboard'ın Monitör'ü kısmen tamamlandı. Mobil cihazlar için uyarı ekranı kondu.</li>
   <li>27-05-2023 : Dashboard yönlendirmesi ve giriş fonksiyonu'nun navbar ile olan reaktivitesi ayarlandı. Hesaptan çıkış yeri eklendi.</li>
   <li>26-05-2023 : Kayıt&Giriş Fonksiyonları Ayarlandı, SNYK Penetration Testi Yapıldı (ReDos Güvenlik Açığı Kapatıldı). </li>
   <li>25-05-2023 : Cypress E2E Testi Yapıldı (Şuanlık %100 Kullanıcı Davranışları İçin Uyumlu Ve Netlify Üzerinde QA WOLF Testleri de Yapılıyor).</li>
