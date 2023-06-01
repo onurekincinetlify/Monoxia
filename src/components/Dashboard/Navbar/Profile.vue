@@ -42,13 +42,13 @@ const defaultImg = ref('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7
 const auth = getAuth();
 
 const changeEmail = () => {
-    const newEmail:any = document.getElementById('newEmail').value
+    const newEmail:any = document.getElementById('newEmail').value!
   onAuthStateChanged(auth, (user) => {
     if (user) {
       updateEmail(user, newEmail)
         .then(() => {
           console.log("E-posta adresi güncellendi");
-           document.getElementById('newEmail').value = ''
+           document.getElementById('newEmail').value! = ''
         })
         .catch((error) => {
           console.log("E-posta adresi güncellenirken bir hata oluştu", error);
