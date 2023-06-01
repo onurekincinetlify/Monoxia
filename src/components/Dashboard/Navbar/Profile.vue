@@ -45,10 +45,10 @@ const newEmail:any = ref(null)
 const changeEmail = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      updateEmail(user, newEmail)
+      updateEmail(user, newEmail.value)
         .then(() => {
           console.log("E-posta adresi güncellendi");
-           document.getElementById('newEmail').value! = ''
+           newEmail.value = ''
         })
         .catch((error) => {
           console.log("E-posta adresi güncellenirken bir hata oluştu", error);
