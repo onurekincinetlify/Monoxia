@@ -42,7 +42,7 @@ const defaultImg = ref('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7
 const auth = getAuth();
 
 const changeEmail = () => {
-    const newEmail:any = document.getElementById('newEmail').value!
+    const newEmail:any = ref(document.getElementById('newEmail').value)
   onAuthStateChanged(auth, (user) => {
     if (user) {
       updateEmail(user, newEmail)
