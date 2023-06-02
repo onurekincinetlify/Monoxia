@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+// import { getStorage, ref, uploadBytes } from "firebase/storage";
+// const fs = require("fs");
+// const path = require("path");
 
 const firebaseConfig = {
   apiKey: "AIzaSyCrvH7f7hwIL6dGHKqXSY5JU2bzHPSm9BU",
@@ -14,9 +17,26 @@ const firebaseConfig = {
 }
 
 // init firebase
-initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
 
-// init firestore service
+// // init firestore service
+// const storage = getStorage(app);
+
+
+
+// const imagePath = path.join(__dirname, "images", "Logo3.png");
+// console.log(imagePath)
+// const file = fs.readFileSync(imagePath);
+
+// const storageRef = ref(storage, "images/my-ima.png"); // Yüklenecek resmin referansını belirtin
+// uploadBytes(storageRef, file)
+//   .then((snapshot) => {
+//     console.log("Resim yükleme işlemi tamamlandı");
+//   })
+//   .catch((error) => {
+//     console.log("Resim yükleme işlemi sırasında bir hata oluştu", error);
+//   });
+
 const db = getFirestore()
 const auth = getAuth()
 export {db, auth}

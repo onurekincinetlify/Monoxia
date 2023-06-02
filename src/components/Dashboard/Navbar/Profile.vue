@@ -9,7 +9,7 @@
       <img :src="defaultImg" alt="default profile picture">
       <label class="label">Setup Profile Picture : </label>
       <div class="input-wrapper">
-        <input type="file">
+        <input id="file-input" type="file">
         <!-- <button class="button uploadBtn">Upload</button> -->
       </div>
       <label class="label">Change Email : </label>
@@ -40,7 +40,8 @@ import { getAuth, updateEmail, onAuthStateChanged } from "firebase/auth";
 
 const defaultImg = ref('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/512px-Circle-icons-profile.svg.png?20160314153816')
 const auth = getAuth();
-const newEmail:any = ref(null)
+
+const newEmail: any = ref(null);
 
 const changeEmail = () => {
   onAuthStateChanged(auth, (user) => {
