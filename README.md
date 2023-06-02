@@ -3,7 +3,7 @@
 </p>
 
 <ul>
-  <h2>Projenin bitmesine son 15 gün</h2>
+  <h2>Projenin bitmesine son 15 gün, %60'ı tamamlandı.</h2>
   <li>02-06-2023 : About, Contact ve Report An Issue bölümleri tamamlandı.</li>
   <li>01-06-2023 : Dashboard'ın Profil bölümü kısmen tamamlandı. Profil bölümünün kullanıcı adı değiştirme kısmı yapıldı, Email değiştirme kısmı yapıldı, Profil Fotoğafı ekleme kısmı yapıldı, Email doğrulama kısmı henüz tamamlanmadı.</li>
   <li>28-05-2023 : Dashboard'ın Navbar'ı kısmen tamamlandı. Dashboard'ın Monitör'ü kısmen tamamlandı. Mobil cihazlar için uyarı ekranı kondu.</li>
