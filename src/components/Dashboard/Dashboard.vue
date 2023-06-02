@@ -55,7 +55,7 @@ import Configure from './Navbar/Configure.vue';
 import Profile from './Navbar/Profile.vue';
 import eventBus from "/src/stores/eventBus";
 
-const currentComponent = shallowRef(Settings);
+const currentComponent = shallowRef(Profile);
 const localEmail = ref(localStorage.getItem('email'));
 const entrie: any = ref(localEmail.value?.split("@"));
 const emailName = ref(entrie.value[0]);
