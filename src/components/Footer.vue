@@ -12,8 +12,6 @@
 </footer>
 </template>
 
-<script lang="ts" setup></script>
-
 <style lang="scss" scoped>
 @import '/public/scss/FooterStyle.scss';
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <h1>Docs Page</h1>
+    <h1></h1>
 </template>
 
 <script lang="ts" setup></script>

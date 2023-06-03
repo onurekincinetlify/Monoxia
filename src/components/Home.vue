@@ -30,144 +30,119 @@
       </div>
     
     </div>
-    <!-- <card /> -->
     <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
-import card from '/src/components/Cards.vue';
 import Footer from '/src/components/Footer.vue';
-// @ts-ignore
+// @ts-ignore has no default export.
 import Alertbox from "./Alert/AlertBox.vue";
-
-import { ref, provide, computed, onMounted, nextTick } from "vue";
-//@ts-ignore
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
-
-// provide(THEME_KEY, "yellow");
-
-function makeRandomData() {
-  return [
-    {
-      value: Math.random(),
-      name: 'A'
-    },
-    {
-      value: Math.random(),
-      name: 'B'
-    },
-    {
-      value: Math.random(),
-      name: 'C'
-    }
-  ];
-}
+import { ref } from "vue";
 
 const ConvertToBar = () => {
   option.value = {
     xAxis: {
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {},
-  series: [
-    {
-      type: 'bar',
-      data: [23, 24, 18, 25, 27, 28, 25]
-    }
-  ]
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {},
+    series: [
+      {
+        type: 'bar',
+        data: [23, 24, 18, 25, 27, 28, 25]
+      }
+    ]
   }
-}
+};
 
 const ConvertToLine = () => {
   option.value = {
-  xAxis: {
-    data: ['A', 'B', 'C']
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [
-    {
-      data: [120, 200, 150],
-      type: 'line'
-    }
-  ]
+    xAxis: {
+      data: ['A', 'B', 'C']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: [120, 200, 150],
+        type: 'line'
+      }
+    ]
+  };
 };
-}
 
 const ConvertToPie = () => {
   option.value = {
-     series: [
-    {
-      type: 'pie',
-         data: [
-        // @ts-ignore
-        {
-          value: 335,
-          name: 'Direct Visit'
-           },
-        // @ts-ignore
-        {
-          value: 234,
-          name: 'Union Ad'
-           },
-        // @ts-ignore
-        {
-          value: 1548,
-          name: 'Search Engine'
-        }
-      ]
-    }
-  ]
+    series: [
+      {
+        type: 'pie',
+        data: [
+          // @ts-ignore
+          {
+            value: 335,
+            name: 'Direct Visit'
+          },
+          // @ts-ignore
+          {
+            value: 234,
+            name: 'Union Ad'
+          },
+          // @ts-ignore
+          {
+            value: 1548,
+            name: 'Search Engine'
+          }
+        ]
+      }
+    ]
   }
-}
+};
 
 const ConvertToScatter = () => {
   option.value = {
     xAxis: {
-    data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-  },
-  yAxis: {},
-  series: [
-    {
-      type: 'scatter',
-      data: [220, 182, 191, 234, 290, 330, 310]
-    }
-  ]
+      data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    },
+    yAxis: {},
+    series: [
+      {
+        type: 'scatter',
+        data: [220, 182, 191, 234, 290, 330, 310]
+      }
+    ]
   }
-}
+};
 
 const ConvertToArea = () => {
   option.value = {
     xAxis: {
-    data: ['A', 'B', 'C', 'D', 'E']
-  },
-  yAxis: {},
-  series: [
-    {
-      data: [10, 22, 28, 23, 19],
-      type: 'line',
-      // @ts-ignore
-      areaStyle: {
-        color: '#09700e',
-        opacity: 0.5
-      }
+      data: ['A', 'B', 'C', 'D', 'E']
     },
-    {
-      data: [25, 14, 23, 35, 10],
-      type: 'line',
-      // @ts-ignore
-      areaStyle: {
-        color: '#0b0970',
-        opacity: 0.5
+    yAxis: {},
+    series: [
+      {
+        data: [10, 22, 28, 23, 19],
+        type: 'line',
+        // @ts-ignore
+        areaStyle: {
+          color: '#09700e',
+          opacity: 0.5
+        }
+      },
+      {
+        data: [25, 14, 23, 35, 10],
+        type: 'line',
+        // @ts-ignore
+        areaStyle: {
+          color: '#0b0970',
+          opacity: 0.5
+        }
       }
-    }
-  ]
+    ]
   }
-}
+};
 
 const option = ref({
    xAxis: {
@@ -182,13 +157,6 @@ const option = ref({
   ]
 
 });
-
- 
-//  onMounted(() => {
-//    nextTick(() => {
-//      AOS.init(); // AOS'u etkinleştirme
-//    });
-//  });
 </script>
 
 <style lang="scss" scoped>

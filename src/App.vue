@@ -6,29 +6,23 @@
       <Footer/>
     </div>
   </div>
-  <div v-else>
+  <div>
     <Navbar/>
-    <router-view key="route.fullPath"></router-view>
+    <router-view :key="route.fullPath"></router-view>
   </div>
 </template>
 
 <script setup lang="ts">
-import { RouterView, RouterLink} from 'vue-router';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 // @ts-ignore
 import Navbar from '/src/components/Navbar.vue';
 import Footer from '/src/components/Footer.vue';
 
 const route = useRoute();
-const router = useRouter();
 
 var userAgent = navigator.userAgent;
 </script>
 
 <style lang="scss">
-.mobile-alert h1{
-  font-size: 20px;
-  text-align: center;
-  margin-top: 150px;
-}
+@import '/public/scss/AppStyle.scss';
 </style>

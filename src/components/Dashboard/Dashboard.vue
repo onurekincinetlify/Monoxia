@@ -42,9 +42,10 @@
 </template>
 
 <script lang="ts" setup>
-//foksiyonel component değişimi {}
-import { computed, markRaw, onMounted, ref, shallowRef } from "vue";
+import { onMounted, Ref, ref,shallowRef } from "vue";
 import { useCookieStore } from "/src/stores/cookieStore";
+
+// Component'ler
 import Settings from './Navbar/Settings.vue';
 import Charts from './Navbar/Charts.vue';
 import Analytics from './Navbar/Analytics.vue';
@@ -55,27 +56,28 @@ import Configure from './Navbar/Configure.vue';
 import Profile from './Navbar/Profile.vue';
 import eventBus from "/src/stores/eventBus";
 
-const currentComponent = shallowRef(Profile);
-const localEmail = ref(localStorage.getItem('email'));
-const entrie: any = ref(localEmail.value?.split("@"));
-const emailName = ref(entrie.value[0]);
-const newUsername:any = ref(localStorage.getItem('username'));
+const currentComponent: any = shallowRef(Profile);
+const localEmail: Ref<string | null> = ref(localStorage.getItem('email'));
+const newUsername: Ref<string | null> = ref(localStorage.getItem('username'));
+
+// Hesaptan çıkış yapar ve tüm verileri arkaplandan kaldırır.
 const exit = () => {
-    localStorage.removeItem('registered')
-    localStorage.removeItem('email')
-    localStorage.removeItem('userCookie')
-    localStorage.removeItem('username')
-    useCookieStore().exit()
+    localStorage.removeItem('registered');
+    localStorage.removeItem('email');
+    localStorage.removeItem('userCookie');
+    localStorage.removeItem('username');
+    useCookieStore().exit();
     window.location.href = window.location.protocol + '//' + window.location.host;
 }
 
+// Profile'den gelecek olan kullanıcı adını bekler.
 onMounted(() => {
-    eventBus.on('ProfileUsername', (payload) => {
-        newUsername.value = payload
+    eventBus.on('ProfileUsername', (payload:any) => {
+        newUsername.value = payload;
     })
 })
 </script>
 
 <style lang="scss" scoped>
-@import '/public/scss/DashboardStyle.scss';
+@import '/public/scss/Dashboard/DashboardStyle.scss';
 </style>

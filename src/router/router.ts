@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Dashboard from '../components/Dashboard/Dashboard.vue'
+import Dashboard from '../components/Dashboard/Dashboard.vue';
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -13,27 +14,33 @@ const router = createRouter({
         { path: '/Docs', name: 'Docs', component: () => import("../components/Navbar/Docs.vue") },
         { path: '/Report', name: 'ReportIssue', component: () => import("../components/Navbar/ReportIssue.vue") },
         { path: '/Login', name: 'Login', component: () => import('../components/Login/Login.vue') },
-        { path: '/Dashboard', name: 'Dashboard', component: Dashboard}
+        { path: '/Dashboard', name: 'Dashboard', component: import('../components/Dashboard/Dashboard.vue') }
     ]
 });
 
+/*
+    Login sayfasına girmeden önce kayıtlı olup olmadığını kontrol eder.
+    Eğer kayıtlıysa Dasboard'a yönlendirir, değilse Login sayfasına girmesine izin verir.
+*/
 router.beforeEach((to, from, next) => {
     if (to.name == 'Login' && localStorage.getItem('registered')) {
-        next({name: 'Dashboard'})
+        next({ name: 'Dashboard' });
     } else {
-        next(true)
+        next(true);
     }
-})
+});
 
-// tüm componentlere altta uyguladığım işlemi uygulamalıyım
-
+/*
+    Dashboard sayfasına girmeden önce kayıtlı olup olmadığını kontrol eder.
+    Eğer kayıtlı değilse Login sayfasına yönlendirir, kayıtlıysa Dasboard'a girmesine izin verir.
+*/
 router.beforeEach((to, from, next) => {
     if (to.name == 'Dashboard' && localStorage.getItem('registered') === null) {
-        next({name: 'Login'})
+        next({ name: 'Login' });
     } else {
         
-        next(true)
+        next(true);
     }
-})
+});
 
 export default router;

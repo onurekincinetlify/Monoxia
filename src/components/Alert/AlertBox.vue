@@ -1,30 +1,36 @@
 <template>
    <div v-if="!isAccapted" id="rootofbox" :class="[{active2:isActive2 === false, notActive2:isActive2 === true}]">
       <div class="box">
-      <div id="header">
-         <h1>{{headerText}}</h1>
-      </div>
-      <div id="picture">
-         <img width="200" height="315" :src="pictureUrl" alt="Monoxia">
-         <div id="description">
-            <p>{{descriptionText}}</p>
+
+         <div id="header">
+            <h1>{{headerText}}</h1>
          </div>
+
+         <div id="picture">
+            <img width="200" height="315" :src="pictureUrl" alt="Monoxia">
+            <div id="description">
+               <p>{{descriptionText}}</p>
+            </div>
+         </div>
+
+         <div id="buttons">
+            <button id="settings" @click="show=true">Çerezleri Ayarla</button>
+            <button :class="{active: bvn==='Önceki', notActive : bvn===''}" id="back" @click="backFunc">{{bvn}}</button>
+            <button id="next" @click="nextFunc">{{svd}}</button>
+         </div>
+
       </div>
-      <div id="buttons">
-         <button id="settings" @click="show=true">Çerezleri Ayarla</button>
-         <button :class="{active: bvn==='Önceki', notActive : bvn===''}" id="back" @click="backFunc">{{bvn}}</button>
-         <button id="next" @click="nextFunc">{{svd}}</button>
-      </div>
-   </div>
-   <div :class="{active : show == true, notActive:show==false}" id="CookieSettingsBox">
-         <input checked type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+
+      <div :class="{active : show == true, notActive:show==false}" id="CookieSettingsBox">
+         <input checked type="checkbox" id="vehicle1" name="vehicle1">
             <label for="vehicle1"> Verilerim alınabilir ve kaydedilebilir.</label><br>
-         <input checked type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+         <input checked type="checkbox" id="vehicle2" name="vehicle2">
             <label for="vehicle2"> Verilerim paylaşılabilir ve incelenebilir.</label><br>
-         <input checked type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+         <input checked type="checkbox" id="vehicle3" name="vehicle3">
             <label for="vehicle3"> Verilerim silinebilir ya da değiştirilebilir.</label><br><br>
          <button @click="show = false" class="close">Save and Close</button>
       </div>
+
    </div>
 </template>
 
@@ -33,17 +39,18 @@ import { ref, reactive, watch, onMounted } from 'vue';
 import { useCookieStore } from '/src/stores/cookieStore';
 import axios from 'axios';
 
-const isAccapted = ref(localStorage.getItem('isCookieAccepted'));
+// Çerezler için gerekli değişkenler.
+const isAccapted = ref(localStorage.getItem('isCookieAccepted')); // Çerezler kabul edildi mi yoksa daha önce hiç onaylanmadı mı ?
 const isActive2 = ref(true);
+
+// Çerez kutusu için gerekli değişkenler.
 const count = ref(1);
 const show = ref(false)
 const svd = ref("Sonraki")
 const bvn = ref("")
 
-// watch(bvn, (newValue, oldValue) => {
-//    console.log({newValue, oldValue})
-// })
 
+// Çerez kutusunun içeriği.
 const obj = reactive({
    hayvan1 : {
       name : "Kullanım Koşulları",
@@ -62,83 +69,82 @@ const obj = reactive({
    }
 })
 
-
+// Çerez kutusunun değişken yapıları.
 const headerText = ref(`${obj.hayvan1.name}`)
 const descriptionText = ref(`${obj.hayvan1.description}`)
 const pictureUrl = ref(`${obj.hayvan1.picture}`)
 
-   const backFunc = () => {
-      if (count.value == 1) {
-         count.value = 3
-         headerText.value = `${obj.hayvan3.name}`;
-         descriptionText.value = `${obj.hayvan3.description}`;
-          pictureUrl.value = `${obj.hayvan3.picture}`;
-         svd.value = "Sonraki"
-      }
-      else if (count.value == 2) {
-         count.value--
-         headerText.value = `${obj.hayvan1.name}`;
-         descriptionText.value = `${obj.hayvan1.description}`;
-         pictureUrl.value = `${obj.hayvan1.picture}`;
-         bvn.value=""
-         svd.value = "Sonraki"
-      }
-      else if (count.value == 3) {
-         count.value--
-         headerText.value = `${obj.hayvan2.name}`;
-         descriptionText.value = `${obj.hayvan2.description}`;
-          pictureUrl.value = `${obj.hayvan2.picture}`;
-         svd.value = "Sonraki"
-      }
+// Çerez kutusunun geçişleri ve onayı.
+const backFunc = () => {
+   if (count.value == 1) {
+      count.value = 3
+      headerText.value = `${obj.hayvan3.name}`;
+      descriptionText.value = `${obj.hayvan3.description}`;
+      pictureUrl.value = `${obj.hayvan3.picture}`;
+      svd.value = "Sonraki"
    }
-
-   const nextFunc = () => {
-      if (count.value === 1) {
-         count.value++
-         headerText.value = `${obj.hayvan2.name}`;
-         descriptionText.value = `${obj.hayvan2.description}`;
-         pictureUrl.value = `${obj.hayvan2.picture}`;
-         bvn.value = "Önceki"
-      }
-      else if (count.value == 2) {
-         count.value++
-         headerText.value = `${obj.hayvan3.name}`;
-         descriptionText.value = `${obj.hayvan3.description}`;
-         pictureUrl.value = `${obj.hayvan3.picture}`;
-         svd.value = "Kaydet"
-      }
-      else if (count.value == 3) {
-          useCookieStore().acceptCookie();
-          axios.post('https://monoxia-5c690-default-rtdb.firebaseio.com/cookie.json', {
-              // @ts-ignore
-              'D-R-S': document.getElementById('vehicle1').checked,
-              // DATA READ SAVE
-              // @ts-ignore
-              'D-S-A': document.getElementById('vehicle2').checked,
-              // DATA SHERE ANALYZE
-              // @ts-ignore
-              'D-D-C': document.getElementById('vehicle3').checked,
-              'Kullanım Koşulları': 'Kabul Edildi',
-              'Gizlilik Sözleşmesi': 'Kabul Edildi',
-              'Kullanıcı Sözleşmesi': 'Kabul Edildi',
-              id: Date.now()
-            // DATA DELETE CHANGE
-         })
-        .then((res) => {
-            isActive2.value = false
-        })
-              .catch((error) => {
-               isActive2.value = false
-        })
-         // count.value = 1
-         // headerText.value = `${obj.hayvan1.name}`;
-         // descriptionText.value = `${obj.hayvan1.description}`;
-         // pictureUrl.value = `${obj.hayvan1.picture}`;
-      }
+   else if (count.value == 2) {
+      count.value--
+      headerText.value = `${obj.hayvan1.name}`;
+      descriptionText.value = `${obj.hayvan1.description}`;
+      pictureUrl.value = `${obj.hayvan1.picture}`;
+      bvn.value=""
+      svd.value = "Sonraki"
    }
+   else if (count.value == 3) {
+      count.value--
+      headerText.value = `${obj.hayvan2.name}`;
+      descriptionText.value = `${obj.hayvan2.description}`;
+      pictureUrl.value = `${obj.hayvan2.picture}`;
+      svd.value = "Sonraki"
+   }
+}
 
+const nextFunc = () => {
+   if (count.value === 1) {
+      count.value++
+      headerText.value = `${obj.hayvan2.name}`;
+      descriptionText.value = `${obj.hayvan2.description}`;
+      pictureUrl.value = `${obj.hayvan2.picture}`;
+      bvn.value = "Önceki"
+   }
+   else if (count.value == 2) {
+      count.value++
+      headerText.value = `${obj.hayvan3.name}`;
+      descriptionText.value = `${obj.hayvan3.description}`;
+      pictureUrl.value = `${obj.hayvan3.picture}`;
+      svd.value = "Kaydet"
+   }
+   else if (count.value == 3) {
+      // Çerezlerin kabul edildiğini Localstorage'a kaydet.
+      useCookieStore().acceptCookie();
+      // Çerezlerin kabulu hakkındaki bilgileri Firebase'e gönder.
+      const vehicle1: HTMLInputElement | null = document.getElementById('vehicle1') as HTMLInputElement;
+      const vehicle2: HTMLInputElement | null = document.getElementById('vehicle2') as HTMLInputElement;
+      const vehicle3: HTMLInputElement | null = document.getElementById('vehicle3') as HTMLInputElement;
+      axios.get('https://api.ipify.org').then((response) => {
+         const ip = response.data;
+         axios.post('https://monoxia-5c690-default-rtdb.firebaseio.com/cookie.json', {
+            'D-R-S': vehicle1?.value,
+            'D-S-A': vehicle2?.checked,
+            'D-D-C': vehicle3?.checked,
+            'Kullanım Koşulları': 'Kabul Edildi',
+            'Gizlilik Sözleşmesi': 'Kabul Edildi',
+            'Kullanıcı Sözleşmesi': 'Kabul Edildi',
+            Time: new Date().toLocaleString(),
+            ip: ip
+         }).then((res) => {
+            isActive2.value = false;
+         }).catch((error) => {
+            isActive2.value = false;
+         });
+      }).catch((error) => {
+         return false;
+      });
+   }
+}
 </script>
 
 <style lang="scss" scoped>
-@import "/public/scss/AlertBoxStyle.scss";
+@import "/public/scss/Alert/AlertBoxStyle.scss";
 </style>

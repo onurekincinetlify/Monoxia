@@ -29,61 +29,64 @@
 
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import axios from 'axios';
-import { useCookieStore } from "/src/stores/cookieStore";
-import eventBus from "/src/stores/eventBus";
-import { collection,setDoc, addDoc, doc, updateDoc, deleteField } from "firebase/firestore"
-import {db} from '../../../firebase'
+// Firebase Kütüphaneleri 
 import { getAuth, updateEmail, onAuthStateChanged } from "firebase/auth";
+import { collection, setDoc, doc } from "firebase/firestore";
+import { useCookieStore } from "/src/stores/cookieStore";
+import { db } from '../../../firebase';
 
+import eventBus from "/src/stores/eventBus";
+import { ref } from "vue";
 
+// Gerekli değişkenler.
 const defaultImg = ref('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/512px-Circle-icons-profile.svg.png?20160314153816')
 const auth = getAuth();
-
 const newEmail: any = ref(null);
 
+// Email adresini günceller.
+// POINTED.
 const changeEmail = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       updateEmail(user, newEmail.value)
         .then(() => {
-          console.log("E-posta adresi güncellendi");
+          alert("E-posta adresiniz güncellendi.");
            newEmail.value = ''
         })
         .catch((error) => {
-          console.log("E-posta adresi güncellenirken bir hata oluştu", error);
+          alert("E-posta adresiniz güncellenirken bir hata oluştu.");
         });
     } else {
-      console.log("Oturum açmış bir kullanıcı bulunamadı");
+      alert("Oturum açmış bir kullanıcı bulunamadı.");
     }
   });
 };
 
-
+// Kullanıcı adını Dashboard'a ekler.
+// Kullanıcı adını Firebase'e kaydeder.
+// EventBus ile kaydedilen veriyi Dashboard'a iletir.
+// POINTED.
 const setupUsername = async () => {
-    // @ts-ignore
-    const username:any = document.getElementById('username').value!;
+    const usernameEl: HTMLInputElement | null = document.getElementById('username') as HTMLInputElement;
+    const username: string = usernameEl?.value;
     if (username) {
-        const colRef = collection(db, 'addedExtra')
-        const id:any = localStorage.getItem('userCookie')
+        const colRef = collection(db, 'addedExtra');
+        const id: any = localStorage.getItem('userCookie');
         const dataObj = {
-            localId: localStorage.getItem('userCookie'),
-            username: username,
-        }
+          localId: localStorage.getItem('userCookie'),
+          username: username,
+        };
         const docRef = doc(colRef, id); 
-        await setDoc(docRef, dataObj); // Belgeyi ekleyin
-
-        console.log('Document was created with ID:', docRef.id)
-        localStorage.setItem('username', username)
-        useCookieStore().setUsername(username)
-        eventBus.emit('ProfileUsername', username)
+        await setDoc(docRef, dataObj);
+        localStorage.setItem('username', username); // Kullanıcı adını LocalStorage'e kaydeder.
+        useCookieStore().setUsername(username); // KUllanıcı adını Store'a kaydeder.
+        eventBus.emit('ProfileUsername', username); // Kullanıcı adının anlık olarak iletilmesini sağlar.
     } else {
-        alert('Kullanıcı Adı Boş Olamaz')
+      alert('Kullanıcı Adı Boş Olamaz');
     }
 }
 </script>
 
 <style scoped lang="scss">
-@import '/public/scss/ProfileStyle.scss';
+@import '/public/scss/Dashboard/Navbar/ProfileStyle.scss';
 </style>

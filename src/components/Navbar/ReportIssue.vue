@@ -1,6 +1,9 @@
 <template>
     <div class="contact">
        <div class="contactbox">
+            <div class="right-bg-mobile">
+                <img src="/public/images/issue.jpg" alt="contact">
+            </div>
             <div class="fields">
                 <h1>What's the issue</h1>
                 <p>If your problem is related to your account, please specify your email and password in the message box afterwards. You can also write other problems (compatibility problems, any problems with the dashboard, etc.)</p>
@@ -11,7 +14,7 @@
                 <button @click="send" class="button">Send</button>
             </div>
             <div class="right-bg">
-                <img src="/public/images/issue2.jpg" alt="contact">
+                <img src="/public/images/issue.jpg" alt="contact">
             </div>
        </div>
     </div>
@@ -20,31 +23,34 @@
 <script lang="ts" setup>
 import axios from "axios";
 import { ref } from "vue";
+
 const msg = ref('');
-const sentShow = ref(false)
-const alertText = ref('')
+const sentShow = ref(false);
+const alertText = ref('');
+
+// Girilen değeri şikayet'ler bölümüne gönderir.
 const send = () => {
     axios.post('https://monoxia-5c690-default-rtdb.firebaseio.com/report.json', {
         Username: localStorage.getItem('username'),
         Email: localStorage.getItem('email'),
-        IssueMessage : msg.value
-    }).then(async(e)=> {
-        msg.value = ''
+        IssueMessage: msg.value
+    }).then(async (e) => {
+        msg.value = '';
         if (e.status === 200) {
             alertText.value = "Your message has been sent";
-            sentShow.value = true
+            sentShow.value = true;
             await new Promise(resolve => setTimeout(resolve, 2000));
-            sentShow.value = false
+            sentShow.value = false;
         } else {
             alertText.value = "Your message hasn't been sent";
-            sentShow.value = true
+            sentShow.value = true;
             await new Promise(resolve => setTimeout(resolve, 2000));
-            sentShow.value = false
+            sentShow.value = false;
         }
     })
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import "/public/scss/ReportStyle.scss";
+@import "/public/scss/Navbar/ReportStyle.scss";
 </style>

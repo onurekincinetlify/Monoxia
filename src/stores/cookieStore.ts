@@ -17,8 +17,8 @@ export const useCookieStore = defineStore('cookie', {
     exit() {
       this.registered = false;
     },
-    setUsername(usernameValue:any) {
-      this.username = usernameValue
+    setUsername(usernameValue: any) {
+      this.username = usernameValue;
     }
   },
 });

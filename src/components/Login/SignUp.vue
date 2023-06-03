@@ -18,95 +18,71 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, defineProps } from "vue";
-import axios from "axios"
+import { ref, defineProps, ExtractPropTypes } from "vue";
+import axios from "axios";
 import router from "/src/router/router";
+import { isEmailCorrect, changeStatus, variables } from '../../watchHelpers';
 
-const mailData = ref('')
-const passwordData = ref('')
-
-const anyIssueInMail = ref(true)
-const anyIssueInPassword = ref(true)
-
-const mailHiddenTips = ref(false)
-const passwordHiddenTips = ref(false)
-
-const shakeAsync = ref(``)
+const { mailData, passwordData, anyIssueInMail, anyIssueInPassword, mailHiddenTips, passwordHiddenTips } = variables;
+const shakeAsync = ref(``);
 
 async function clearShake() {
     await new Promise(resolve => setTimeout(resolve, 900));
-    shakeAsync.value = ``
-}
+    shakeAsync.value = ``;
+};
 
-const emit = defineEmits({
+const emit: (event: "info", value: string) => void = defineEmits({
     info: (value: string) => value
 });
-const emitEvent = () => {
-    emit('info', 'signin')
-}
 
-const props = defineProps({
-    active: String
-})
+const emitEvent = ():any => {
+    emit('info', 'signin');
+};
 
+const props: Readonly<ExtractPropTypes<{active: StringConstructor;}>> = defineProps({
+    active: String,
+});
+
+// Kayıt olur ve anasayfa'ya yönlendirir.
 const loginFn = async () => {
     if (anyIssueInMail.value === false && anyIssueInPassword.value === false) {
-        // giriş kodları https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY] AIzaSyCrvH7f7hwIL6dGHKqXSY5JU2bzHPSm9BU
         axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCrvH7f7hwIL6dGHKqXSY5JU2bzHPSm9BU", {
             email: mailData.value,
             password: passwordData.value,
             returnSecureToken: true
         }).then((e) => {
-            console.log(e)
             if (e.status === 200) {
-                router.push('/')
-            } else if(e.status === 400) {
-                router.push('/Login')
+                router.push('/');
+            } else if (e.status === 400) {
+                router.push('/Login');
             } else {
-                router.push('/Login')
-            }
-        })
+                router.push('/Login');
+            };
+        });
     } else {
         if (anyIssueInMail.value === false) {
-            passwordHiddenTips.value = true
-            mailHiddenTips.value = false
-            shakeAsync.value = `shake`
+            passwordHiddenTips.value = true;
+            mailHiddenTips.value = false;
+            shakeAsync.value = `shake`;
             clearShake()
         } else if (anyIssueInPassword.value === false) {
-            mailHiddenTips.value = true
-            passwordHiddenTips.value = false
-            shakeAsync.value = `shake`
-            clearShake()
+            mailHiddenTips.value = true;
+            passwordHiddenTips.value = false;
+            shakeAsync.value = `shake`;
+            clearShake();
         } else {
-            mailHiddenTips.value = true
-            passwordHiddenTips.value = true   
-            shakeAsync.value = `shake`
-            clearShake()
+            mailHiddenTips.value = true;
+            passwordHiddenTips.value = true;
+            shakeAsync.value = `shake`;
+            clearShake();
         }
-    }
-}
+    };
+};
 
-watch(()=>mailData.value, (newValue, oldValue) => {
-    const email = newValue.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(email)) {
-        anyIssueInMail.value = false
-        mailHiddenTips.value = false
-    } else {
-        anyIssueInMail.value = true
-  }
-})
-
-watch(()=>passwordData.value, (newValue, oldValue) => {
-    if (newValue.length >= 8) {
-        anyIssueInPassword.value = false
-        passwordHiddenTips.value = false  
-    } else {
-        anyIssueInPassword.value = true
-  }
-})
+isEmailCorrect();
+changeStatus();
 </script>
 
 <style lang="scss" scoped>
-@import '/public/scss/SignInStyle.scss';
+@import '/public/scss/Login/SignInStyle.scss';
 </style>
