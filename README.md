@@ -1,6 +1,8 @@
 <p align="center">
   <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/a8f8cac0-294d-46ef-befa-3ab9da94b582" alt="Logo4">
 </p>
+<h1>Monoxia nedir ?</h1>
+<p>Monoxia, iktisat üzerine çalışan kişilerin yaptıkları sunumlarda, daha estetik ve anlaşılır grafikler tasarlamasına yardımcı olur.</p>
 <ul>
   <h2>Monoxia versiyon 3'de neler olacak ?</h2>
   <li>Monoxia'nın kendine özgü bir eklentisi olacak yani kullanıcılar çeşitli modifikasyon özelliklerine sahip olacak.</li>
