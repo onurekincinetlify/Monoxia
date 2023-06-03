@@ -25,6 +25,10 @@
 </ul>
 <ul>
   <h2>Monoxia versiyon 1'in bitmesine son 14 gün, %55'i tamamlandı.</h2>
+  <li>İktisatçılar için bir grafik tasarım hizmeti sunacak.</li>
+  <li>İngilizce ve Türkçe dil desteği olacak.</li>
+  <li>Grafikler üzerinde çeşitli konfigürasyon özellikleri sunulacak.</li>
+  <h3>Neler oluyor ? </h3>
   <li>03-06-2023 : Kodların okunabilirliği arttırıldı. About, Contact ve Report An Issue sayfaları mobil uyumlu hale getirildi. Navbar ve Footer'daki sorunlar giderildi. Web site hızlandırıldı.</li>
   <li>02-06-2023 : About, Contact ve Report An Issue bölümleri tamamlandı.</li>
   <li>01-06-2023 : Dashboard'ın Profil bölümü kısmen tamamlandı. Profil bölümünün kullanıcı adı değiştirme kısmı yapıldı, Email değiştirme kısmı yapıldı, Profil Fotoğafı ekleme kısmı yapıldı, Email doğrulama kısmı henüz tamamlanmadı.</li>
