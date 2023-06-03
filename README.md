@@ -17,7 +17,7 @@
 </ul>
 <ul>
   <h2>Monoxia versiyon 2'de neler olacak ?</h2>
-  <li>Artık netlify üzerinden hizmet vermeyecek yani Monoxia.com üzerinden hizmet vermeye başlayacak.</li>
+  <li>Artık netlify üzerinden hizmet vermeyecek yerine Monoxia.com üzerinden hizmet vermeye başlayacak.</li>
   <li>Grafikte fonksiyonellik artacak, kullanıcılar garfik tasarlarken %90 özgür olacak, hayal güçlerinin gerçekleşmesinde engel tanınmayacak.</li>
   <li>Çeşitli dil destekleri sunulacak, Dünyanın dört bir yanından kullanıcılar kullanım kolaylığı sağlayacak.</li>
   <li>Farklı grafik kütüphanelerinin desteği sunulacak, yani kullanıcılar istediği grafik yazılımını seçip kullanabilecek.</li>
