@@ -3,6 +3,12 @@ footer{
     box-shadow: 1px 0px 10px 8px rgb(245, 244, 244);
     width: 100%;
     height: auto;
-    bottom: 0;
+    bottom: 0 !important;
     padding: 30px 0px 30px 0px;
+}
+
+@media (max-width: 420px) {
+    footer {
+        position: absolute;
+    }
 }
