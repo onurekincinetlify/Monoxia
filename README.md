@@ -4,6 +4,11 @@
 <h1>Monoxia nedir ?</h1>
 <p>Monoxia, iktisat üzerine çalışan kişilerin yaptıkları sunumlarda, daha estetik ve anlaşılır grafikler tasarlamasına yardımcı olur.</p>
 <ul>
+  <h2>Monoxia versiyon 4'de neler olacak ?</h2>
+  <li>Monoxia'nın kendine özgü windows, linux ve macOS uygulaması olacak.</li>
+  <li>Monoxia artık tekel olmaktan çıkıp bir kütüphane haline gelcek. Yazılım geiştiricileri projelerinde Monoxia kullanabilecek.</li>
+</ul>
+<ul>
   <h2>Monoxia versiyon 3'de neler olacak ?</h2>
   <li>Monoxia'nın kendine özgü bir eklentisi olacak yani kullanıcılar çeşitli modifikasyon özelliklerine sahip olacak.</li>
   <li>Monoxia'nın kendine özgü Android destekli bir mobil uygulaması olacak, Monoxia sadece bir web siteden ibaret olmayacak.</li>
