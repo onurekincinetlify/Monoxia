@@ -6,7 +6,7 @@
   <li>Monoxia'nın kendine özgü bir eklentisi olacak yani kullanıcılar çeşitli modifikasyon özelliklerine sahip olacak.</li>
   <li>Monoxia'nın kendine özgü Android destekli bir mobil uygulaması olacak, Monoxia sadece bir web siteden ibaret olmayacak.</li>
   <li>Sadece iktisat değil, muhasebe, işletme ve diğer tüm alanlar için hizmet verecek.</li>
-  <li>Monoxia cüzi ücretlerle hizmetine devam edecek.</li>li>
+  <li>Monoxia cüzi ücretlerle hizmetine devam edecek.</li>
 </ul>
 <ul>
   <h2>Monoxia versiyon 2'de neler olacak ?</h2>
