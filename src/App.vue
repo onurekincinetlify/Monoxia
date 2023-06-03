@@ -6,7 +6,7 @@
       <Footer/>
     </div>
   </div>
-  <div>
+  <div v-else>
     <Navbar/>
     <router-view :key="route.fullPath"></router-view>
   </div>
