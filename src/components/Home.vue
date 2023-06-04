@@ -19,7 +19,7 @@
         <img class="custom-img-1" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
         <img class="custom-img-2" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
       </div>
-      <div class="box-line">
+      <div id="boxLine" class="box-line">
         <div class="box">
           <h1>Our Services</h1>
           <p>Based on customer needs, we will make improvements.</p>
@@ -56,7 +56,7 @@
           <button @click="ConvertToArea">Area Chart</button>
         </div>
       </div>
-      <div class="intro2">
+      <div id="intro2" class="intro2">
         <h1>All the diverse and functional graphics are available at Monoxia</h1>
         <p>
           Our graphics offer limitless variety! Enjoy adding vibrancy to your project with our carefully designed, eye-catching, and impressive graphics. From low fidelity to high resolution, from minimalist design to vibrant colors, you will find every style and type imaginable. Push the boundaries with our creative graphic options to enhance your visual presentation and captivate your audience. Each button will open the doors to a new world, offering a mesmerizing graphic experience that will leave you in awe. Get ready, as you are just one click away from embarking on an unforgettable visual journey!
@@ -75,6 +75,19 @@ import Footer from '/src/components/Footer.vue';
 // @ts-ignore has no default export.
 import Alertbox from "./Alert/AlertBox.vue";
 import { ref } from "vue";
+
+window.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY;
+
+  if (scrollPosition > 90) {
+    var lineBox = document.getElementById('boxLine');
+    lineBox?.classList.add("bottomtotop")
+  }
+  if (scrollPosition > 320) {
+    var intro2 = document.getElementById('intro2')
+    intro2?.classList.add("righttoleft")
+  }
+});
 
 const ConvertToBar = () => {
   option.value = {

@@ -25,19 +25,4 @@ var userAgent = navigator.userAgent;
 
 <style lang="scss">
 @import '/public/scss/AppStyle.scss';
-.intro {
-  font-family: 'Comfortaa', cursive;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  h1 {
-    font-size: 30px;
-    font-weight: 500;
-    letter-spacing: 0.1px;
-    line-height: 50px;
-    text-transform: capitalize;
-    text-align: left;
-    font-style: normal;
-  }
-}
 </style>

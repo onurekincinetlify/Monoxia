@@ -26,6 +26,46 @@
   border-top: 1px solid rgba(0, 0, 0, 0.178);
   background-color: rgba(214, 214, 214, 0.727);
 }
+.intro{
+  animation: 1.2s movetoright;
+}
+.righttoleft{
+  animation: 1.2s movetoleft forwards;
+}
+.bottomtotop{
+  animation: 1.2s movetotop forwards;
+  opacity: 1;
+}
+@keyframes movetotop {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  100%{
+transform: translateY(0px);
+opacity: 1;
+  }
+}
+@keyframes movetoleft {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100%{
+transform: translateX(-30px);
+opacity: 1;
+  }
+}
+@keyframes movetoright {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100%{
+transform: translateX(0px);
+opacity: 1;
+  }
+}
 
 .chart {
   width: 700px;
@@ -114,13 +154,15 @@
   z-index: -10000000;
   right: -6%;
   top: 30%;
-  transform: scale(0.9);
+  transform: scale(0.9) !important;
   .custom-img-1 {
     z-index: 3;
     position: absolute;
     transform: scale(3.4);
     filter: brightness(0) contrast(0.5) opacity(0.4);
     background-color: hsl(240, 46%, 75%);
+    animation: dagil 4s linear;
+    animation: rithm2 5s linear infinite;
     opacity: 1;
   }
   .custom-img-2 {
@@ -129,6 +171,8 @@
     transform: scale(3.6);
     filter: brightness(0) contrast(0.5) opacity(0.3);
     background-color: hsl(240, 95%, 25%);
+    animation: dagil 5s linear;
+    animation: rithm1 5s linear infinite;
     opacity: 1;
   }
   img{
@@ -136,20 +180,44 @@
     filter: brightness(0.66) contrast(0.90) opacity(0.9);
     width: auto;
     height: auto;
-    //animation: dagil 5s linear infinite;
   }
   .model{
     transform: scale(1.28);
     z-index: 100000;
   }
-//   @keyframes dagil {
-//    0% {
-//      clip-path: circle(10% at 50% 50%);
-//    }
-//    100% {
-//      clip-path: circle(100% at 50% 50%);
-//    }
-//  }
+   @keyframes dagil {
+    0% {
+      transform: scale(3.6);
+    }
+    50% {
+      transform: scale(3.7);
+    }
+    100%{
+       transform: scale(3.6);
+    }
+  }
+  @keyframes rithm1 {
+    0% {
+      transform: scale(3.6);
+    }
+    50% {
+      transform: scale(3.7);
+    }
+    100%{
+       transform: scale(3.6);
+    }
+  }
+  @keyframes rithm2 {
+    0% {
+      transform: scale(3.4);
+    }
+    50% {
+      transform: scale(3.5);
+    }
+    100%{
+       transform: scale(3.4);
+    }
+  }
 }
 
 .box-line{
@@ -160,6 +228,7 @@
   align-items: center;
   margin: 0 auto;
   font-family: 'Comfortaa', cursive;
+  opacity: 0;
 .box{
   width: 240px;
   height: 270px;
