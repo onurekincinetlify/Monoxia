@@ -19,6 +19,27 @@
         <img class="custom-img-1" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
         <img class="custom-img-2" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
       </div>
+      <div class="box-line">
+        <div class="box">
+          <h1>Our Services</h1>
+          <p>Based on customer needs, we will make improvements.</p>
+        </div>
+        <div class="box">
+          <i class='bx bx-cog'></i>
+          <h1>Functionality</h1>
+          <p>You are free to create the desired design with high-functionality graphics.</p>
+        </div>
+        <div class="box">
+          <i class='bx bx-server'></i>
+          <h1>Effectiveness</h1>
+          <p>Our service is highly fast, and you can download any project you have within seconds.</p>
+        </div>
+        <div class="box">
+          <i class='bx bx-scatter-chart' ></i>
+          <h1>Diversity</h1>
+          <p>We have a wide range of beautiful graphic options, each more stunning than the other.</p>
+        </div>
+      </div>
       </div>
       <div class="second-section">
         <div id="demo-chart">
@@ -36,13 +57,9 @@
         </div>
       </div>
       <div class="intro2">
-        <h1>A glimpse into the unique world of Monoxia.</h1>
+        <h1>All the diverse and functional graphics are available at Monoxia</h1>
         <p>
-          Welcome! You are in the right place to step into the world of graphic design or improve your existing skills. 
-          Our Graphic Design Site is here to let you explore your creativity, develop your design skills and be inspired. 
-          Graphic design is a powerful communication tool and aims to create aesthetically impressive and effective visual experiences by combining art and technology. 
-          Our site has a range of features equipped with a variety of design tools, resources and guidance. 
-          In addition to being a designer, we also offer a lot for business owners, marketers or simply enthusiasts interested in design projects.
+          Our graphics offer limitless variety! Enjoy adding vibrancy to your project with our carefully designed, eye-catching, and impressive graphics. From low fidelity to high resolution, from minimalist design to vibrant colors, you will find every style and type imaginable. Push the boundaries with our creative graphic options to enhance your visual presentation and captivate your audience. Each button will open the doors to a new world, offering a mesmerizing graphic experience that will leave you in awe. Get ready, as you are just one click away from embarking on an unforgettable visual journey!
         </p> 
       </div>
       </div>
