@@ -16,8 +16,8 @@
       </div>
       <div class="home-right-bg">
         <img class="model" src="https://wext.in/wp-content/uploads/2018/05/5-tips-winning-business-presentation-625x417.png" alt="">
-        <img class="custom-img-1" src="aedeaawdaw" />
-        <img class="custom-img-2" src="aedeaawdaw" />
+        <img class="custom-img-1" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
+        <img class="custom-img-2" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
       </div>
       </div>
       <div class="second-section">
