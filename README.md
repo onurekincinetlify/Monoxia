@@ -24,7 +24,7 @@
   <li>Template değişecek, yani Monoxia, daha teknolojik ve daha çok animasyonun olduğu profesyonel bir tasarıma sahip olacak.</li>
 </ul>
 <ul>
-  <h2>Monoxia versiyon 1'in bitmesine son 14 gün, %55'i tamamlandı.</h2>
+  <h2>Monoxia versiyon 1'in bitmesine son 13 gün, %55'i tamamlandı.</h2>
   <li>İktisatçılar için bir grafik tasarım hizmeti sunacak.</li>
   <li>İngilizce ve Türkçe dil desteği olacak.</li>
   <li>Grafikler üzerinde çeşitli konfigürasyon özellikleri sunulacak.</li>
