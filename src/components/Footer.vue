@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer style="margin-top: 100px" class="footer">
         <div class="content has-text-centered">
             <p>
                 <strong>Monoxia</strong> by 

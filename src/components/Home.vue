@@ -1,8 +1,27 @@
 <template>
-  <div>
+  <div class="home-root">
     <div id="entrie">
 
-      <div id="demo-chart">
+      <Alertbox />      <!-- data-aos="fade-left" data-aos-duration="1500" -->
+      <div class="first-section">
+        <div class="intro">
+        <h1>A glimpse into the unique world of Monoxia.</h1>
+        <p>
+          Welcome! You are in the right place to step into the world of graphic design or improve your existing skills. 
+          Our Graphic Design Site is here to let you explore your creativity, develop your design skills and be inspired. 
+          Graphic design is a powerful communication tool and aims to create aesthetically impressive and effective visual experiences by combining art and technology. 
+          Our site has a range of features equipped with a variety of design tools, resources and guidance. 
+          In addition to being a designer, we also offer a lot for business owners, marketers or simply enthusiasts interested in design projects.
+        </p> 
+      </div>
+      <div class="home-right-bg">
+        <img class="model" src="https://wext.in/wp-content/uploads/2018/05/5-tips-winning-business-presentation-625x417.png" alt="">
+        <img class="custom-img-1" src="aedeaawdaw" />
+        <img class="custom-img-2" src="aedeaawdaw" />
+      </div>
+      </div>
+      <div class="second-section">
+        <div id="demo-chart">
         <!-- data-aos="zoom-in" data-aos-duration="1500" -->
         <v-chart v-log.onur="() => {return 'hi'}" class="chart" :option="option" />
 
@@ -16,9 +35,7 @@
           <button @click="ConvertToArea">Area Chart</button>
         </div>
       </div>
-      <Alertbox />
-      <!-- data-aos="fade-left" data-aos-duration="1500" -->
-      <div class="intro">
+      <div class="intro2">
         <h1>A glimpse into the unique world of Monoxia.</h1>
         <p>
           Welcome! You are in the right place to step into the world of graphic design or improve your existing skills. 
@@ -27,6 +44,7 @@
           Our site has a range of features equipped with a variety of design tools, resources and guidance. 
           In addition to being a designer, we also offer a lot for business owners, marketers or simply enthusiasts interested in design projects.
         </p> 
+      </div>
       </div>
     
     </div>
