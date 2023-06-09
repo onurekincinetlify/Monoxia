@@ -183,6 +183,7 @@ body, button, input {
   -moz-box-flex: 1;
   -moz-box-ordinal-group: 5;
   -webkit-box-ordinal-group: 5;
+  opacity: 1;
 }
 
 .wrapper {
