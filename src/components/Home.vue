@@ -76,10 +76,10 @@ This feature allows users to use their graphics in presentations, reports, or ot
       </div>
       </div>
       <div class="forth-section">
-        <video autoplay loop muted>
+        <!-- <video autoplay loop muted>
     <source src="/public/images/200420_Business_01_4k_019.mp4" type="video/mp4">
     Your browser does not support the video tag.
-  </video>
+  </video> -->
       <div id="intro4" class="intro4">
         <h1>Expand the Horizons of Graphic Design, Step into the Future with Exciting New Features!</h1>
         <p>
