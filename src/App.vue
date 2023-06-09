@@ -35,7 +35,7 @@
                     </div>  
 
                     <span class="button-box">
-                      <button @click="okey" class="btn" type="submit" name="submit">Hesabımı Doğrula</button>
+                      <button @click="okey" class="btn" name="submit">Hesabımı Doğrula</button>
                     </span>  
 
                     <a class="forgot" href="">Neden böyle bir uyarı aldım?</a>
