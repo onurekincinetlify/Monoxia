@@ -98,15 +98,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { useRoute } from 'vue-router';
-// @ts-ignore
-import Navbar from '/src/components/Navbar.vue';
-import Footer from '/src/components/Footer.vue';
+<script setup>
+// import { useRoute } from 'vue-router';
+// // @ts-ignore
+// import Navbar from '/src/components/Navbar.vue';
+// import Footer from '/src/components/Footer.vue';
 
-const route = useRoute();
+// const route = useRoute();
 
-var userAgent = navigator.userAgent;
+// var userAgent = navigator.userAgent;
 </script>
 
 <style lang="scss">
