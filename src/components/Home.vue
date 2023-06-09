@@ -63,7 +63,36 @@
         </p> 
       </div>
       </div>
-    
+      <div class="third-section">
+      <div id="intro3" class="intro3">
+        <h1>Monoxia: Bring Economic Data to Life, Design Your Graphics, and Obtain Impressive Outputs!</h1>
+        <p>
+          Monoxia's user-friendly interface simplifies the process of designing graphics. Users can choose from different types of charts and personalize their graphics with customization options such as colors, labels, and titles. Additionally, they can save their designed graphics in any size and format as output.
+This feature allows users to use their graphics in presentations, reports, or other professional documents. Monoxia facilitates effective visualization and presentation of data, making economic analysis processes easier and helping to achieve more impactful results.
+        </p> 
+      </div>
+      <div class="home-right-bg-section3">
+        <img src="../../public/images/printedchart.jpg" alt="Printed Chart">
+      </div>
+      </div>
+      <div class="forth-section">
+        <video autoplay loop muted>
+    <source src="/public/images/200420_Business_01_4k_019.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+      <div id="intro4" class="intro4">
+        <h1>Expand the Horizons of Graphic Design, Step into the Future with Exciting New Features!</h1>
+        <p>
+          Monoxia is a constantly evolving platform that brings new features and innovations. In the future, we aim to provide even more capabilities to our users. We are working on developing mobile and desktop applications, allowing our users to design their desired graphs and obtain output with ease.
+
+As a global platform, Monoxia envisions providing language support to users worldwide. This will enable users from different languages to comfortably utilize Monoxia and effectively visualize their data.
+
+Monoxia offers an extensive library of graph types, allowing users to choose from various options. Line graphs, bar charts, pie charts, and more can be used to visually represent data. This empowers users to create presentations and reports according to their preferences, resulting in impressive outcomes.
+
+With its user-friendly interface, continuous feature updates, and broad language and graph support, Monoxia will continue to meet the expectations of its users. We will constantly strive to enhance Monoxia based on your support and feedback, enabling you to visualize your data more effectively. We eagerly look forward to sharing new features and developments with you. Embrace Monoxia, bring your data to life, and unlock the power of impactful graphs.
+        </p> 
+      </div>
+      </div>
     </div>
     <Footer />
   </div>
@@ -72,6 +101,7 @@
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
 import Footer from '/src/components/Footer.vue';
+import aboutus from '/src/components/Navbar/About.vue';
 // @ts-ignore has no default export.
 import Alertbox from "./Alert/AlertBox.vue";
 import { ref } from "vue";
