@@ -11,6 +11,7 @@
                     <option value="PieChart">Pie Chart</option>
                     <option value="ScatterChart">Scatter Chart</option>
                     <option value="AreaChart">Area Chart</option>
+                    <option value="RadarChart">Radar Chart</option>
                 </select>
             </div>
             <div class="check">
@@ -105,15 +106,30 @@ const titleOptionF = () => {
 <style scoped lang="scss">
 .options-fields{
     padding: 20px;
+    flex: 0.5;
+    border-left: 1px solid rgba(205, 191, 191, 0.708);
+    height: 100vh;
+}
+.settings {
+    display: flex;
 }
 #designed-chart{
+    width: 600px;
+    height: 400px;
+    max-width: 600px;
+    max-height: 400px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 1;
+    align-items: left;
+    justify-content: left;
+    margin-top: 7%;
 }
 .chart{
     width: 600px;
     height: 400px;
+    max-width: 600px;
+    max-height: 400px;
+    position: fixed;
 }
 .check{
     label{
