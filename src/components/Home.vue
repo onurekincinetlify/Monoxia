@@ -75,11 +75,8 @@ This feature allows users to use their graphics in presentations, reports, or ot
         <img src="../../public/images/printedchart.jpg" alt="Printed Chart">
       </div>
       </div>
-      <div class="forth-section">
-       <video autoplay loop muted>
-          <source src="/videos/bussines.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-       </video> 
+      <!-- <div class="forth-section">
+          <iframe src="https://www.veed.io/embed/665e518e-0e0b-43df-8ae4-40c8349aa1f5" width="744" height="504" frameborder="0" title="bussines.mp4" autoplay loop></iframe>
       <div id="intro4" class="intro4">
         <h1>Expand the Horizons of Graphic Design, Step into the Future with Exciting New Features!</h1>
         <p>
@@ -92,7 +89,7 @@ Monoxia offers an extensive library of graph types, allowing users to choose fro
 With its user-friendly interface, continuous feature updates, and broad language and graph support, Monoxia will continue to meet the expectations of its users. We will constantly strive to enhance Monoxia based on your support and feedback, enabling you to visualize your data more effectively. We eagerly look forward to sharing new features and developments with you. Embrace Monoxia, bring your data to life, and unlock the power of impactful graphs.
         </p> 
       </div>
-      </div>
+      </div> -->
     </div>
     <Footer />
   </div>

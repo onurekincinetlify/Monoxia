@@ -1,5 +1,9 @@
 <template>
     <div class="formulas">
+      <div id="notification" class="notification is-info is-light">
+  <button @click="deleteNotifi" id="deleteButton" class="delete"></button>
+  Based on a detailed analysis of Monoxia, various useful formulas have been converted into algorithms and integrated into graphics. This study covers an important research area aimed at enhancing the functionality of Monoxia.
+</div>
         <table class="table">
   <thead>
     <tr>
@@ -32,7 +36,7 @@
       <td></td>
       <td>Mtx = f(Fx, Fr, Ft, G, T, N, Gd, K)</td>
     </tr>
-    <tr>
+    <tr class="is-selected">
       <th>4</th>
       <td>Demand</td>
       <td>Price Elasticity of Demand</td>
@@ -46,7 +50,7 @@
       <td></td>
       <td>er = (ΔM / M) / (ΔF / F) = (ΔM / ΔF) x F / M</td>
     </tr>
-    <tr>
+    <tr class="is-selected">
       <th>6</th>
       <td>Demand</td>
       <td>Price Elasticity of Demand</td>
@@ -59,7 +63,20 @@
 </template>
 
 <script lang="ts" setup>
-
+const deleteNotifi = () => {
+let deleteButton= document.getElementById('notification');
+if (deleteButton) {
+    deleteButton.classList.add('deleteEL');
+} else {
+}
+}
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.deleteEL {
+    display: none;
+}
+table{
+    width: 100%;
+}
+</style>

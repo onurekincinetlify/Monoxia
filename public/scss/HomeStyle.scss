@@ -154,7 +154,7 @@ opacity: 1;
   height: 100vh; /* Varsayılan olarak ekran yüksekliği kadar ayarlandı */
   overflow: hidden;
   box-shadow: -41px -40px 100px 8px inset rgb(245 244 244);
-  video{
+  iframe{
     z-index: -1000;
     position: absolute;
     top: 0;
