@@ -5,7 +5,7 @@
         </div>
         <div class="options-fields">
             <div class="select">
-                <select>
+                <select v-model="selectedChart">
                     <option value="BarChart">Bar Chart</option>
                     <option value="LineChart">Line Chart</option>
                     <option value="PieChart">Pie Chart</option>
@@ -30,6 +30,18 @@
                 <label id="titleOption" class="checkbox">
                     <input @click="titleOptionF" type="checkbox" checked> Show Title
                 </label>
+                <div class="input-wrapper">
+                    <input v-model.number="xaxisCount" class="input" type="number">
+                </div>
+
+                <div class="select">
+                <select v-model="changeTheIndex">
+                    <option v-for="name in option.xAxis.data" :key="name">{{ name }}</option>
+                </select>
+            </div>
+                <div class="input-wrapper">
+                    <input id="changeXValue" @keyup.enter="addNameToX" :value="option.xAxis.data[option.xAxis.data.indexOf(changeTheIndex)]" class="input" type="text" placeholder="Type and push the enter.">
+                </div>
             </div>
         </div>
     </div>
@@ -38,12 +50,17 @@
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
 import { ref, watch } from 'vue';
+import { any } from "joi";
+import { Value } from "sass";
 
 const keyValue = ref(10);
 const mainTitle = ref('Main Title');
 const subTitle = ref('Sub Title');
 const MainfontSize = ref(30);
 const SubfontSize = ref(20);
+const selectedChart = ref('BarChart');
+const xaxisCount = ref(7);
+const changeTheIndex = ref('');
 
 const reload = () => {
     keyValue.value = Math.random();
@@ -51,7 +68,7 @@ const reload = () => {
 
 const option = ref({
    xAxis: {
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    data: ['Xa', 'Xb', 'Xc', 'Xd', 'Xe', 'Xf', 'Xg']
     },
   title: {
     text: "Main Title",
@@ -76,9 +93,44 @@ const option = ref({
 
 });
 
+const addNameToX = () => {
+    let vale = document.getElementById('changeXValue')?.value;
+    option.value.xAxis.data[option.value.xAxis.data.indexOf(changeTheIndex.value)] = vale
+}
+
+
+watch(() => selectedChart.value, (newValue, oldValue) => {
+    if (newValue === "LineChart") {
+        option.value.series[0]['type'] = 'line';
+    } else if (newValue === 'BarChart'){
+        option.value.series[0]['type'] = 'bar';
+    } else if (newValue === 'ScatterChart') {
+        option.value.series[0]['type'] = 'scatter';
+    }
+    reload();
+})
+
 
 watch(() => mainTitle.value, (newValue, oldValue) => {
     option.value.title.text = newValue
+    reload();
+})
+
+watch(() => xaxisCount.value, (newValue, oldValue) => {
+    if (newValue < 1) {
+        xaxisCount.value = 1
+        console.log({newValue,oldValue})
+    }
+    else if (newValue > oldValue) {
+        if (newValue === 1) {
+            return;
+        }
+        option.value.xAxis.data.push('X')
+        option.value.series[0]['data'].push(30)
+    } else if (newValue < oldValue) {
+        console.log('azalt')
+        option.value.xAxis.data.pop()
+    }
     reload();
 })
 
