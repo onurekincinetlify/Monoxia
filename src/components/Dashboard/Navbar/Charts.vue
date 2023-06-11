@@ -123,8 +123,8 @@ watch(() => xaxisCount.value, (newValue, oldValue) => {
         if (newValue === 1) {
             return;
         }
-        option.value.xAxis.data.push('X')
-        option.value.series[0]['data'].push(30)
+        option.value.xAxis.data.push(Math.random().toString().slice(0, 4))
+        option.value.series[0]['data'].push(Math.random() * 30)
     } else if (newValue < oldValue) {
         console.log('azalt')
         option.value.xAxis.data.pop()
