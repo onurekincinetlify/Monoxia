@@ -2,10 +2,10 @@
     <div id="signInStyle">
         <div id="inputs">
             <label class="label">Email</label>
-            <input id="mail" :class="{validFormat: anyIssueInMail === false, invalidFormat: anyIssueInMail === true}" v-model="mailData" class="input is-normal" type="email" placeholder="Enter your account email" />
+            <input @keyup.enter="loginFn" id="mail" :class="{validFormat: anyIssueInMail === false, invalidFormat: anyIssueInMail === true}" v-model="mailData" class="input is-normal" type="email" placeholder="Enter your account email" />
             <small class="miniInfoText" v-if="mailHiddenTips">Example : afrodit@monoxia.com</small>
             <label class="label">Password</label>
-            <input id="password" :class="{validFormat: anyIssueInPassword === false, invalidFormat: anyIssueInPassword === true}" v-model="passwordData" class="input is-normal" type="password" placeholder="Enter your account password" />
+            <input @keyup.enter="loginFn" id="password" :class="{validFormat: anyIssueInPassword === false, invalidFormat: anyIssueInPassword === true}" v-model="passwordData" class="input is-normal" type="password" placeholder="Enter your account password" />
             <small class="miniInfoText" v-if="passwordHiddenTips">The password must be at least 8 characters long.</small>
             <div class="fields">
                 <a @click="emitEvent">Don't have an account?</a>
@@ -110,6 +110,12 @@ const loginFn = async () => {
 
 isEmailCorrect();
 changeStatus();
+
+window.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        loginFn();
+    }
+});
 </script>
 
 <style lang="scss" scoped>
