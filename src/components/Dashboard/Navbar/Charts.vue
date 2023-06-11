@@ -50,8 +50,6 @@
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
 import { ref, watch } from 'vue';
-import { any } from "joi";
-import { Value } from "sass";
 
 const keyValue = ref(10);
 const mainTitle = ref('Main Title');
@@ -94,8 +92,8 @@ const option = ref({
 });
 
 const addNameToX = () => {
-    let vale = document.getElementById('changeXValue')?.value;
-    option.value.xAxis.data[option.value.xAxis.data.indexOf(changeTheIndex.value)] = vale
+    let vale:HTMLInputElement | null = document.getElementById('changeXValue') as HTMLInputElement;
+    option.value.xAxis.data[option.value.xAxis.data.indexOf(changeTheIndex.value)] = vale.value
 }
 
 
