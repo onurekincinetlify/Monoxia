@@ -31,15 +31,14 @@
                     <input @click="titleOptionF" type="checkbox" checked> Show Title
                 </label>
                 <div class="input-wrapper">
-                    <input v-model.number="xaxisCount" class="input" type="number">
+                    <input id="xaxisCountInput" v-model.number="xaxisCount" class="input" type="number">
                 </div>
-
-                <div class="select">
-                <select v-model="changeTheIndex">
-                    <option v-for="name in option.xAxis.data" :key="name">{{ name }}</option>
-                </select>
-            </div>
-                <div class="input-wrapper">
+                <div style="float:left;margin: 10px 5px 0px 0px;position: fixed;max-width: 70px;" class="select">
+                    <select v-model="changeTheIndex">
+                        <option v-for="name in option.xAxis.data" :key="name">{{ name }}</option>
+                    </select>
+                </div>
+                <div style="width:219.5px; position: fixed;margin-left: 80px;" class="input-wrapper">
                     <input id="changeXValue" @keyup.enter="addNameToX" :value="option.xAxis.data[option.xAxis.data.indexOf(changeTheIndex)]" class="input" type="text" placeholder="Type and push the enter.">
                 </div>
             </div>
