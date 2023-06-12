@@ -1,5 +1,5 @@
 <template>
-    <div id="Storage" class="Storage">
+    <div id="Storage" :key="reloadStorage" class="Storage">
          <div id="notification" class="notification is-info is-light">
             <button @click="deleteNotifi" id="deleteButton" class="delete"></button>
             Your saved charts are displayed here on our website. You can manage, edit, and share your charts through your account. Visualize your data effectively and track your progress. Enjoy easy access to your charts. Welcome to a world full of charts!
@@ -11,6 +11,7 @@
                 </select>
             </div>
         <button class="button">Download</button>
+        <button @click="reloadStorage=Math.random()" class="button">Reload</button>
         </div>
         <div v-for="ch in charts" :key="ch">
             <v-chart :key="ch" class="chart" :option="ch" />
@@ -24,6 +25,8 @@ import html2canvas from 'html2canvas';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../../../firebase';
 import { onMounted, Ref, ref } from "vue";
+
+const reloadStorage = ref(0);
 
 // html2canvas(designedChart).then(function(canvas) {
 //     var link = document.createElement("a");
