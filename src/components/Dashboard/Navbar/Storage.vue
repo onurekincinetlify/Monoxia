@@ -24,7 +24,6 @@ import html2canvas from 'html2canvas';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../../../firebase';
 import { onMounted, Ref, ref } from "vue";
-import { number, string } from "joi";
 
 // html2canvas(designedChart).then(function(canvas) {
 //     var link = document.createElement("a");
