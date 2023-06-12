@@ -11,7 +11,7 @@
                 </select>
             </div>
         <button class="button">Download</button>
-        <button @click="reloadStorage=Math.random()" class="button">Reload</button>
+        <button @click="hotReloadStorage().then(()=>{changevariables()})" class="button">Reload</button>
         </div>
         <div v-for="ch in charts" :key="ch">
             <v-chart :key="ch" class="chart" :option="ch" />
@@ -52,9 +52,22 @@ const getChartsById = async () => {
 
   return {charts, chartId};
 };
-const {charts, chartId} = await getChartsById();
-console.log(charts)
-console.log(chartId)
+const { charts, chartId } = await getChartsById();
+
+const chartsl = ref(charts)
+const chartid = ref(chartId)
+
+const hotReloadStorage = async () => {
+    const { charts, chartId } = await getChartsById();
+    return {charts, chartId}
+}
+
+const changevariables = async () => {
+    const { charts, chartId } = await hotReloadStorage();
+    chartsl.value = charts.value
+    chartid.value = chartId.value
+    reloadStorage.value = Math.random();
+}
 
 const deleteNotifi = () => {
 let deleteButton= document.getElementById('notification');
