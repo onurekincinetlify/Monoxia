@@ -14,7 +14,7 @@
                     <a @click="currentComponent=Charts"><i class='bx bx-line-chart' ></i>Charts</a>
                 </div>
                 <div class="field">
-                    <a @click="currentComponent=Analytics"><i class='bx bxs-analyse' ></i>Analytics</a>
+                    <a @click="currentComponent=Storage"><i class='bx bx-hdd'></i>Storage</a>
                 </div>
                 <div class="field">
                     <a @click="currentComponent=Formulas"><i class='bx bx-pyramid'></i>Formulas</a>
@@ -35,7 +35,9 @@
         </div>
         <div class="monitor">
             <keep-alive>
-                <component :is="currentComponent" />
+                <suspense>
+                    <component :is="currentComponent" />
+                </suspense>
             </keep-alive>
         </div>
     </div>    
@@ -48,7 +50,7 @@ import { useCookieStore } from "/src/stores/cookieStore";
 // Component'ler
 import Settings from './Navbar/Settings.vue';
 import Charts from './Navbar/Charts.vue';
-import Analytics from './Navbar/Analytics.vue';
+import Storage from './Navbar/Storage.vue';
 import Formulas from './Navbar/Formulas.vue';
 import Subjects from './Navbar/Subjects.vue';
 import Configure from './Navbar/Configure.vue';

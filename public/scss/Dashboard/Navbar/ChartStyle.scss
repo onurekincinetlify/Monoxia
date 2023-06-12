@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Montserrat+Alternates:ital,wght@1,300&display=swap');
+
+.options-fields{
+    padding: 20px;
+    flex: 0.5;
+    border-left: 1px solid rgba(205, 191, 191, 0.708);
+    height: 100vh;
+}
+.settings {
+    display: flex;
+}
+#designed-chart{
+    width: 600px;
+    height: 400px;
+    max-width: 600px;
+    max-height: 400px;
+    display: flex;
+    flex: 1;
+    align-items: left;
+    justify-content: left;
+    margin-top: 7%;
+}
+.chart{
+    width: 600px;
+    height: 400px;
+    max-width: 600px;
+    max-height: 400px;
+    position: fixed;
+}
+.check{
+    label{
+        display: block;
+        margin: 10px 0px 10px 3px;
+    }
+    #listAndChange{
+        display: flex;
+        #ListTheData{
+            flex: 1;
+            width: 70px;
+            max-width: 70px;
+            margin: 10px 10px 0px 0px;
+        }
+        #addNametoX{
+            flex: 1;
+            input{
+                width: 220px;
+                max-width: 220px;
+            }
+        }
+    }
+    #saveChanges{
+        button{
+            left: -10px;
+            font-size: 15px;
+            font-family: 'Assistant', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+        }
+    }
+}
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+.button {
+  margin-left: 10px;
+  border-color: rgba(88, 87, 87, 0.515);
+}
+input[type="text"], input[type="number"]{
+    width: 300px;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+}

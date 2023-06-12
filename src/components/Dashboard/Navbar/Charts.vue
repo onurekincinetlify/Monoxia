@@ -33,13 +33,18 @@
                 <div class="input-wrapper">
                     <input id="xaxisCountInput" v-model.number="xaxisCount" class="input" type="number">
                 </div>
-                <div style="float:left;margin: 10px 5px 0px 0px;position: fixed;max-width: 70px;" class="select">
+                <div id="listAndChange">
+                    <div id="ListTheData" class="select">
                     <select v-model="changeTheIndex">
                         <option v-for="name in option.xAxis.data" :key="name">{{ name }}</option>
                     </select>
                 </div>
-                <div style="width:219.5px; position: fixed;margin-left: 80px;" class="input-wrapper">
+                <div id="addNametoX" class="input-wrapper">
                     <input id="changeXValue" @keyup.enter="addNameToX" :value="option.xAxis.data[option.xAxis.data.indexOf(changeTheIndex)]" class="input" type="text" placeholder="Type and push the enter.">
+                </div>
+                </div>
+                <div id="saveChanges">
+                    <button class="button" @click="saveTheChart">Save the Chart</button>
                 </div>
             </div>
         </div>
@@ -48,7 +53,10 @@
 
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
+import html2canvas from 'html2canvas';
 import { ref, watch } from 'vue';
+import { collection, setDoc, doc } from "firebase/firestore";
+import { db } from '../../../firebase';
 
 const keyValue = ref(10);
 const mainTitle = ref('Main Title');
@@ -89,6 +97,21 @@ const option = ref({
   ]
 
 });
+
+const saveTheChart = async () => {
+    if (option.value) {
+        const colRef = collection(db, 'addedChart');
+        const id: any = localStorage.getItem('userCookie');
+        const dataObj = {
+          localId: localStorage.getItem('userCookie'),
+            chart: option.value,
+            chartId: Math.random()
+        };
+        const docRef = doc(colRef); 
+        await setDoc(docRef, dataObj);
+        alert('Your Chart Saved')
+    }
+}
 
 const addNameToX = () => {
     let vale:HTMLInputElement | null = document.getElementById('changeXValue') as HTMLInputElement;
@@ -153,50 +176,5 @@ const titleOptionF = () => {
 </script>
 
 <style scoped lang="scss">
-.options-fields{
-    padding: 20px;
-    flex: 0.5;
-    border-left: 1px solid rgba(205, 191, 191, 0.708);
-    height: 100vh;
-}
-.settings {
-    display: flex;
-}
-#designed-chart{
-    width: 600px;
-    height: 400px;
-    max-width: 600px;
-    max-height: 400px;
-    display: flex;
-    flex: 1;
-    align-items: left;
-    justify-content: left;
-    margin-top: 7%;
-}
-.chart{
-    width: 600px;
-    height: 400px;
-    max-width: 600px;
-    max-height: 400px;
-    position: fixed;
-}
-.check{
-    label{
-        display: block;
-        margin: 10px 0px 10px 3px;
-    }
-}
-.input-wrapper {
-  display: flex;
-  align-items: center;
-}
-.button {
-  margin-left: 10px;
-  border-color: rgba(88, 87, 87, 0.515);
-}
-input[type="text"], input[type="number"]{
-    width: 300px;
-    margin: 10px 0px 10px 0px;
-    text-align: center;
-}
+@import "/public/scss/Dashboard/Navbar/ChartStyle.scss";
 </style>
