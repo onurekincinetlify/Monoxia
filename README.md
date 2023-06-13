@@ -2,7 +2,8 @@
   <img src="https://github.com/onurekincinetlify/Monoxia/assets/128093143/a8f8cac0-294d-46ef-befa-3ab9da94b582" alt="Logo4">
 </p>
 <ul>
-  <h2>Monoxia versiyon 1'in bitmesine son 5 gün, %66'sı tamamlandı.</h2>
+  <h2>Monoxia versiyon 1'in bitmesine son 5 gün, %70'i tamamlandı.</h2>
+  <li>12-06-2023 : Dashboard'ın Analysis bölümü silindi onun yerine Storage eklendi ve kısmen tamamlandı, Charts bölümü kısmen tamamlandı, Formulas ve Subjects bölümleri tamamlandı, bazı sorunlar giderildi ve ufak detaylar üzerine uğraşıldı, web site hızlandırıldı, Güvenlik testleri yapıldı..</li>
   <li>10-06-2023 : Dashboard'ın Formulas ve Subjects bölümleri kısmen yapıldı.</li>
   <li>04-06-2023 : Home tekrardan tasarlandı.</li>
   <li>03-06-2023 : Kodların okunabilirliği arttırıldı. About, Contact ve Report An Issue sayfaları mobil uyumlu hale getirildi. Navbar ve Footer'daki sorunlar giderildi. Web site hızlandırıldı.</li>
