@@ -66,8 +66,8 @@ const hotReloadStorage = async () => {
 const clearAll = async () => {
      const colRef = collection(db, 'addedChart');
   const id = localStorage.getItem('userCookie');
-  const querySnapshot = await getDocs(query(colRef, where('localId', '==', id)));
-    querySnapshot.forEach(async(doca) => {
+  const querySnapshot:any = await getDocs(query(colRef, where('localId', '==', id)));
+    querySnapshot.forEach(async(doca:any) => {
         if (doca._key.path.segments[6]) {
             await deleteDoc(doc(db, 'addedChart', doca._key.path.segments[6]))   
         }
