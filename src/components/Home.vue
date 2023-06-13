@@ -75,21 +75,6 @@ This feature allows users to use their graphics in presentations, reports, or ot
         <img src="../../public/images/printedchart.jpg" alt="Printed Chart">
       </div>
       </div>
-      <!-- <div class="forth-section">
-          <iframe src="https://www.veed.io/embed/665e518e-0e0b-43df-8ae4-40c8349aa1f5" width="744" height="504" frameborder="0" title="bussines.mp4" autoplay loop></iframe>
-      <div id="intro4" class="intro4">
-        <h1>Expand the Horizons of Graphic Design, Step into the Future with Exciting New Features!</h1>
-        <p>
-          Monoxia is a constantly evolving platform that brings new features and innovations. In the future, we aim to provide even more capabilities to our users. We are working on developing mobile and desktop applications, allowing our users to design their desired graphs and obtain output with ease.
-
-As a global platform, Monoxia envisions providing language support to users worldwide. This will enable users from different languages to comfortably utilize Monoxia and effectively visualize their data.
-
-Monoxia offers an extensive library of graph types, allowing users to choose from various options. Line graphs, bar charts, pie charts, and more can be used to visually represent data. This empowers users to create presentations and reports according to their preferences, resulting in impressive outcomes.
-
-With its user-friendly interface, continuous feature updates, and broad language and graph support, Monoxia will continue to meet the expectations of its users. We will constantly strive to enhance Monoxia based on your support and feedback, enabling you to visualize your data more effectively. We eagerly look forward to sharing new features and developments with you. Embrace Monoxia, bring your data to life, and unlock the power of impactful graphs.
-        </p> 
-      </div>
-      </div> -->
     </div>
     <Footer />
   </div>
@@ -102,6 +87,7 @@ import aboutus from '/src/components/Navbar/About.vue';
 // @ts-ignore has no default export.
 import Alertbox from "./Alert/AlertBox.vue";
 import { ref } from "vue";
+
 
 window.addEventListener('scroll', function() {
   var scrollPosition = window.scrollY;

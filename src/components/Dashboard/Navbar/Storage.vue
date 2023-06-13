@@ -12,6 +12,7 @@
             </div>
         <button class="button">Download</button>
         <button @click="hotReloadStorage().then(()=>{changevariables()})" class="button">Reload</button>
+        <button @click="clearAll" class="button">Clear All</button>
         </div>
         <div v-for="ch in charts" :key="ch">
             <v-chart :key="ch" class="chart" :option="ch" />
@@ -22,7 +23,7 @@
 <script lang="ts" setup>
 import VChart, { THEME_KEY } from "vue-echarts";
 import html2canvas from 'html2canvas';
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { db } from '../../../firebase';
 import { onMounted, Ref, ref } from "vue";
 
@@ -60,6 +61,17 @@ const chartid = ref(chartId)
 const hotReloadStorage = async () => {
     const { charts, chartId } = await getChartsById();
     return {charts, chartId}
+}
+
+const clearAll = async () => {
+     const colRef = collection(db, 'addedChart');
+  const id = localStorage.getItem('userCookie');
+  const querySnapshot = await getDocs(query(colRef, where('localId', '==', id)));
+    querySnapshot.forEach(async(doca) => {
+        if (doca._key.path.segments[6]) {
+            await deleteDoc(doc(db, 'addedChart', doca._key.path.segments[6]))   
+        }
+  });
 }
 
 const changevariables = async () => {

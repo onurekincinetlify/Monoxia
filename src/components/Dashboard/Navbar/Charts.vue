@@ -4,6 +4,7 @@
             <v-chart :key="keyValue" class="chart" :option="option" />
         </div>
         <div class="options-fields">
+            <label class="smallInfo">Choose the type of chart : </label>
             <div class="select">
                 <select v-model="selectedChart">
                     <option value="BarChart">Bar Chart</option>
@@ -16,22 +17,32 @@
             </div>
             <div class="check">
                 <div class="input-wrapper">
+                    <label style="margin-top:10px">Change main text : </label>
                     <input v-model="mainTitle" class="input" type="text" placeholder="Change main title text">
                 </div>
                 <div class="input-wrapper">
+                    <label>Change sub text : </label>
                     <input v-model="subTitle" class="input" type="text" placeholder="Change sub title text">
                 </div>
                 <div class="input-wrapper">
+                    <label>Set the font size of the main text : </label>
                     <input v-model.number="MainfontSize" class="input" type="number">
                 </div>
                 <div class="input-wrapper">
+                    <label>Set the font size of the sub text : </label>
                     <input v-model.number="SubfontSize" class="input" type="number">
                 </div>
                 <label id="titleOption" class="checkbox">
+                    <label class="smallInfo">Show/hide the text on the screen : </label>
                     <input @click="titleOptionF" type="checkbox" checked> Show Title
                 </label>
                 <div class="input-wrapper">
+                    <label>Increase xAxis count : </label>
                     <input id="xaxisCountInput" v-model.number="xaxisCount" class="input" type="number">
+                </div>
+                <div class="input-wrapper">
+                    <label>Increase yAxis count : </label>
+                    <input id="xaxisCountInput" v-model.number="yaxisCount" class="input" type="number">
                 </div>
                 <div id="listAndChange">
                     <div id="ListTheData" class="select">
@@ -40,7 +51,18 @@
                     </select>
                 </div>
                 <div id="addNametoX" class="input-wrapper">
-                    <input id="changeXValue" @keyup.enter="addNameToX" :value="option.xAxis.data[option.xAxis.data.indexOf(changeTheIndex)]" class="input" type="text" placeholder="Type and push the enter.">
+                    <input id="changeXValue" @keyup.enter="addNameToX" :value="option.xAxis.data[option.xAxis.data.indexOf(changeTheIndex)]" class="input" type="text" placeholder="Change the values of yAxis">
+                </div>
+                </div>
+
+                <div id="listAndChangeY">
+                    <div id="ListTheData" class="select">
+                    <select v-model="changeTheIndexY">
+                        <option v-for="name in option.yAxis.data" :key="name">{{ name }}</option>
+                    </select>
+                </div>
+                <div id="addNametoY" class="input-wrapper">
+                    <input id="changeYValue" @keyup.enter="addNameToY" :value="option.yAxis.data[option.yAxis.data.indexOf(changeTheIndexY)]" class="input" type="text" placeholder="Change the values of xAxis">
                 </div>
                 </div>
                 <div id="saveChanges">
@@ -65,8 +87,9 @@ const MainfontSize = ref(30);
 const SubfontSize = ref(20);
 const selectedChart = ref('BarChart');
 const xaxisCount = ref(7);
+const yaxisCount = ref(7);
 const changeTheIndex = ref('');
-
+const changeTheIndexY = ref('');
 const reload = () => {
     keyValue.value = Math.random();
 }
@@ -88,7 +111,9 @@ const option = ref({
       fontSize: 20
     }
   },
-  yAxis: {},
+    yAxis: {
+    data: ['Ya', 'Yb', 'Yc', 'Yd', 'Ye', 'Yf', 'Yg']
+  },
   series: [
     {
       type: 'bar',
@@ -116,6 +141,11 @@ const saveTheChart = async () => {
 const addNameToX = () => {
     let vale:HTMLInputElement | null = document.getElementById('changeXValue') as HTMLInputElement;
     option.value.xAxis.data[option.value.xAxis.data.indexOf(changeTheIndex.value)] = vale.value
+}
+
+const addNameToY = () => {
+    let vale:HTMLInputElement | null = document.getElementById('changeYValue') as HTMLInputElement;
+    option.value.yAxis.data[option.value.yAxis.data.indexOf(changeTheIndexY.value)] = vale.value
 }
 
 
@@ -150,6 +180,24 @@ watch(() => xaxisCount.value, (newValue, oldValue) => {
     } else if (newValue < oldValue) {
         console.log('azalt')
         option.value.xAxis.data.pop()
+    }
+    reload();
+})
+
+watch(() => yaxisCount.value, (newValue, oldValue) => {
+    if (newValue < 1) {
+        yaxisCount.value = 1
+        console.log({newValue,oldValue})
+    }
+    else if (newValue > oldValue) {
+        if (newValue === 1) {
+            return;
+        }
+        option.value.yAxis.data.push(Math.random().toString().slice(0, 4))
+        option.value.series[0]['data'].push(Math.random() * 30)
+    } else if (newValue < oldValue) {
+        console.log('azalt')
+        option.value.yAxis.data.pop()
     }
     reload();
 })

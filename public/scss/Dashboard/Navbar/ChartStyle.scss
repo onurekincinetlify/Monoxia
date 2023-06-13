@@ -48,6 +48,22 @@
             }
         }
     }
+     #listAndChangeY{
+        display: flex;
+        #ListTheData{
+            flex: 1;
+            width: 70px;
+            max-width: 70px;
+            margin: 10px 10px 0px 0px;
+        }
+        #addNametoY{
+            flex: 1;
+            input{
+                width: 220px;
+                max-width: 220px;
+            }
+        }
+    }
     #saveChanges{
         button{
             left: -10px;
@@ -58,9 +74,22 @@
         }
     }
 }
+.smallInfo{
+    display: block;
+    margin: 0px 0px 5px -2px !important;
+    text-align: left;
+    color: rgba(77, 77, 77, 0.702);
+    font-size: 14px;
+  }
 .input-wrapper {
-  display: flex;
   align-items: center;
+  label{
+    display: block;
+    margin: 0px 0px -5px 0px;
+    text-align: left;
+    color: rgba(77, 77, 77, 0.702);
+    font-size: 14px;
+  }
 }
 .button {
   margin-left: 10px;
