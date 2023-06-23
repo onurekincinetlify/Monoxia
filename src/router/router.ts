@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../components/Dashboard/Dashboard.vue';
+import Banned from '../components/Banned.vue';
+import axios from 'axios';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,9 +16,12 @@ const router = createRouter({
         { path: '/Docs', name: 'Docs', component: () => import("../components/Navbar/Docs.vue") },
         { path: '/Report', name: 'ReportIssue', component: () => import("../components/Navbar/ReportIssue.vue") },
         { path: '/Login', name: 'Login', component: () => import('../components/Login/Login.vue') },
-        { path: '/Dashboard', name: 'Dashboard', component: Dashboard }
+        { path: '/Dashboard', name: 'Dashboard', component: Dashboard },
+        { path: '/Blocked', name: 'Banned', component: Banned }
     ]
 });
+
+const blackList = ["37.130.105.72", "213.74.84.149"]
 
 /*
     Login sayfasına girmeden önce kayıtlı olup olmadığını kontrol eder.
@@ -28,6 +33,18 @@ router.beforeEach((to, from, next) => {
     } else {
         next(true);
     }
+});
+
+router.beforeEach(async (to, from, next) => {
+await axios.get('https://api.ipify.org').then((response) => {
+        const ip = response.data;
+        if (to.name !== 'Banned' && blackList.includes(ip)) {
+            console.log('yasaklı')
+            next({ name: 'Banned' });
+        } else {
+            next(true);
+        }
+    })
 });
 
 /*
