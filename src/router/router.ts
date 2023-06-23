@@ -17,11 +17,15 @@ const router = createRouter({
         { path: '/Report', name: 'ReportIssue', component: () => import("../components/Navbar/ReportIssue.vue") },
         { path: '/Login', name: 'Login', component: () => import('../components/Login/Login.vue') },
         { path: '/Dashboard', name: 'Dashboard', component: Dashboard },
-        { path: '/Blocked', name: 'Banned', component: Banned }
+        { path: '/Blocked', name: 'Banned', component: Banned },
     ]
 });
 
-const blackList = ["37.130.105.72", "213.74.84.149"]
+let blackList: any[] = [];
+
+axios.get('https://monoxia-5c690-default-rtdb.firebaseio.com/banned.json').then((e) => {
+    blackList = Object.values(e.data).map((item:any) => item.ip);
+})
 
 /*
     Login sayfasına girmeden önce kayıtlı olup olmadığını kontrol eder.
@@ -39,7 +43,6 @@ router.beforeEach(async (to, from, next) => {
 await axios.get('https://api.ipify.org').then((response) => {
         const ip = response.data;
         if (to.name !== 'Banned' && blackList.includes(ip)) {
-            console.log('yasaklı')
             next({ name: 'Banned' });
         } else {
             next(true);
