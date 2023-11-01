@@ -1,32 +1,26 @@
-$linkColor:rgb(52, 46, 46);
-.monoxia-router {
-    color:$linkColor;
+@font-face {
+  font-family: "Fontspring";
+  src:
+    local("Fontspring"),
+    url("../../public/fonts/Fontspring-DEMO-theseasons-reg.otf") format("opentype")
 }
 
 #monoxia-navbar{
-}
-
-.navbar {
-    border-bottom: 1px solid rgb(245, 233, 233);
-    box-shadow: 1px 0px 40px 8px rgb(237, 233, 233);
-    position: fixed;
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    .navbar-brand {
-        .navbar-item img{
-            transform: scale(1.2);
-            margin: 2px 3.3px 0px 13px;
+    width: 1000vh;
+    height: 80px;
+    background-color: #1B1A16;
+    display: flex;
+    .logo{
+        img{
+            margin: 0px 0px 0px 20px;
         }
     }
-}
-
-.login {
-        display: none;
+    .description{
+        h1{
+        font-family: Fontspring;
+        color:#D4B1A3;
+        max-width: 130px;
+        }
+        margin: 60px 0px 0px 0px;
     }
-
-.nbm{
-    display: none;
 }

@@ -18,3 +18,4 @@
   <li>18-05-2023 : ECharts ve Pinia Projeye eklendi.</li>
   <li>17-05-2023 : Beta olarak Navbar(Home, Documentation, About, Contact, Report an issue, Sign up, Log in vs.) Componenti, Footer Componenti ve Router tasarlandı.</li>
 </ul>
+# JellyQuake
