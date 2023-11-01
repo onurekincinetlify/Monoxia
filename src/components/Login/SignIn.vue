@@ -1,132 +1,123 @@
 <template>
-    <div>
-        <div class="entrie-container">
-            <div class="header">
-                <h1>Merhaba!</h1>
-            </div>
-            <div class="description">
-                <p>Hesabınızla Sisteme Giriş Yapınız</p>
+    <div id="signInStyle">
+        <div id="inputs">
+            <label class="label">Email</label>
+            <input @keyup.enter="loginFn" id="mail" :class="{validFormat: anyIssueInMail === false, invalidFormat: anyIssueInMail === true}" v-model="mailData" class="input is-normal" type="email" placeholder="Enter your account email" />
+            <small class="miniInfoText" v-if="mailHiddenTips">Example : afrodit@monoxia.com</small>
+            <label class="label">Password</label>
+            <input @keyup.enter="loginFn" id="password" :class="{validFormat: anyIssueInPassword === false, invalidFormat: anyIssueInPassword === true}" v-model="passwordData" class="input is-normal" type="password" placeholder="Enter your account password" />
+            <small class="miniInfoText" v-if="passwordHiddenTips">The password must be at least 8 characters long.</small>
+            <div class="fields">
+                <a @click="emitEvent">Don't have an account?</a>
             </div>
         </div>
-        <div class="input-container">
-            <input v-model="username" class="input is-normal" type="text" placeholder="Kullanıcı Adı">
-            <input v-model="password" class="input is-normal lastInput" type="text" placeholder="Şifre">
-            <a @click="emitEvent" class="GoUp">Henüz kayıt olmadınız mı?</a>
-            <br/>
-        </div>
-        <div class="buttons">
-            <button  @click="done" class="signInButton">Giriş Yap</button>
+        <div class="buttonWrapper">
+            <input @click.prevent="loginFn" :class="`${shakeAsync}`" class="btn" type="submit" value="Login" />
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped>
-@font-face {
-    font-family: modernify;
-    src: url(../../public/fonts/Noyh-Regular.ttf);
-}
-.entrie-container{
-    width: 100%;
-}
-$color: white;
-.lastInput{
-    margin: 0px 0px 20px 0px;
-}
-.GoUp{
-    width: 100%;
-    margin: 0px 0px 0px 15px;
-    color: whitesmoke;
-    font-family: modernify;
-}
-.radio{
-    color:white;
-    margin: 10px 0px 0px -210px;
-}
-.buttons{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    .signUpButton{
-        margin-right: 30px;
-    }
-} 
-            input[type="text"]{
-                border-radius: 50px;
-                box-shadow: 2px 2px 10px 2px rgba(126, 126, 126, 0.998);
-                box-sizing: border-box;
-                font-size: 15px;
-            }
-            input:first-of-type{
-                margin: 20px 0px 30px 0px;
-                box-sizing: border-box;
-                font-size: 15px;
-            }
-            button{
-                width: 150px;
-                height: 40px;
-                border-radius: 30px;
-                font-size: 16px;
-                background: linear-gradient(#7216CE,#202124);
-                outline: none;
-                border: none;
-                text-align: center;
-                color: $color;
-                font-family: modernify;
-            }
-            .header{
-                color:$color;
-                text-align: center;
-                font-size: 40px;
-                margin: 58px 0px 0px 0px;
-            }
-            .description{
-                color:$color;
-                text-align: center;
-                font-size: 22px;
-                overflow: hidden;
-            }
-            .input-container{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-</style>
-
 <script lang="ts" setup>
-import { defineEmits, ref} from 'vue';
-import axios from 'axios';
-import SignUp from './SignUp.vue';
-import router from '/src/router/router';
-const emit = defineEmits({
-    changePage:(value:string)=>value
-})
+import { ref,defineEmits } from "vue";
+import axios from "axios";
+import router from "/src/router/router";
+import { useCookieStore } from '/src/stores/cookieStore';
+import { db } from '../../firebase';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import eventBus from "/src/stores/eventBus";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { isEmailCorrect, changeStatus, variables } from '../../watchHelpers';
 
-const username = ref('');
-const password = ref('');
+const auth = getAuth();
+const { mailData, passwordData, anyIssueInMail, anyIssueInPassword, mailHiddenTips, passwordHiddenTips } = variables;
+const shakeAsync = ref(``);
+
+async function clearShake() {
+    await new Promise(resolve => setTimeout(resolve, 900));
+    shakeAsync.value = ``;
+};
+
+const emit: (event: "info", value: string) => void = defineEmits({
+    info: (value: string) => value
+});
 
 const emitEvent = () => {
-    emit('changePage', SignUp)
-}
+    emit('info', 'signup');
+};
 
-const done = () => {
-    axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCvWeJBNQUkQkaWcgCbXD6g3vcsJVAX8W0", {
-            email: username.value,
-            password: password.value,
+const signInUser = async (email:any, password:any) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    // Oturum açma işlemi başarılı.
+  } catch (error:any) {
+    // Oturum açma işlemi başarısız.
+  }
+};
+
+// Giriş yapar ve gerekli LocalStorage item'lerini kaydeder.
+const loginFn = async () => {
+    if (anyIssueInMail.value === false && anyIssueInPassword.value === false) {
+        axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCrvH7f7hwIL6dGHKqXSY5JU2bzHPSm9BU", {
+            email: mailData.value,
+            password: passwordData.value,
             returnSecureToken: true
-        }).then((e:any) => {
-            console.log(e)
+        }).then((e) => {
             if (e.status === 200) {
                 localStorage.setItem('userCookie', e.data.localId);
                 localStorage.setItem('registered', e.data.registered);
                 localStorage.setItem('email', e.data.email);
-                router.push('/dashboard');
+                useCookieStore().setRegistered();
+                signInUser(mailData.value, passwordData.value);
+                const filteredQuery = query(
+                    collection(db, "addedExtra"),
+                    where("localId", "==", e.data.localId)
+                );
+                const getData = async () => {
+                    const querySnapshot = await getDocs(filteredQuery);
+                    querySnapshot.forEach((doc) => {
+                        const username = doc.data().username;
+                        localStorage.setItem('username', username);
+                        eventBus.emit('ProfileUsername', username);
+                    });
+                };
+                getData();
+                router.push('/Dashboard');
             } else if (e.status === 400) {
                 router.push('/Login');
             } else {
                 router.push('/Login');
             };
         });
-}
+    } else {
+        if (anyIssueInMail.value === false) {
+            passwordHiddenTips.value = true;
+            mailHiddenTips.value = false;
+            shakeAsync.value = `shake`;
+            clearShake();
+        } else if (anyIssueInPassword.value === false) {
+            mailHiddenTips.value = true;
+            passwordHiddenTips.value = false;
+            shakeAsync.value = `shake`;
+            clearShake();
+        } else {
+            mailHiddenTips.value = true;
+            passwordHiddenTips.value = true;
+            shakeAsync.value = `shake`;
+            clearShake();
+        }
+    };
+};
+
+isEmailCorrect();
+changeStatus();
+
+window.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        loginFn();
+    }
+});
 </script>
+
+<style lang="scss" scoped>
+@import '/public/scss/Login/SignInStyle.scss';
+</style>

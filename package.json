@@ -12,10 +12,8 @@
   "dependencies": {
     "@vue/runtime-dom": "^3.3.4",
     "aos": "^2.3.4",
-    "axios": "^1.5.1",
-    "boxicons": "^2.1.4",
+    "axios": "^1.4.0",
     "bulma": "^0.9.4",
-    "cors": "^2.8.5",
     "echarts": "^5.4.2",
     "exec": "^0.2.1",
     "ffmpeg.js": "^4.2.9003",
@@ -24,10 +22,8 @@
     "html2canvas": "^1.4.1",
     "katex": "^0.16.7",
     "mitt": "^3.0.0",
-    "parlx.js": "^2.0.4",
     "pinia": "^2.0.0-rc.10",
     "sass": "^1.62.0",
-    "vanilla-tilt": "^1.8.0",
     "vue": "^3.2.47",
     "vue-echarts": "^6.5.5",
     "vue-router": "^4.1.6"

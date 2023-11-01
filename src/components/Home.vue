@@ -1,184 +1,225 @@
 <template>
-  <div class="container1">
-    <div class="navbar1">
-        <div class="logo">
-        <img src="../../public/images/Logo/Logo.png" alt="">
+  <div class="home-root">
+    <div id="entrie">
+
+      <Alertbox />      <!-- data-aos="fade-left" data-aos-duration="1500" -->
+      <div class="first-section">
+        <div class="intro">
+        <h1>A glimpse into the unique world of Monoxia.</h1>
+        <p>
+          Welcome! You are in the right place to step into the world of graphic design or improve your existing skills. 
+          Our Graphic Design Site is here to let you explore your creativity, develop your design skills and be inspired. 
+          Graphic design is a powerful communication tool and aims to create aesthetically impressive and effective visual experiences by combining art and technology. 
+          Our site has a range of features equipped with a variety of design tools, resources and guidance. 
+          In addition to being a designer, we also offer a lot for business owners, marketers or simply enthusiasts interested in design projects.
+        </p> 
+      </div>
+      <div class="home-right-bg">
+        <img class="model" src="https://wext.in/wp-content/uploads/2018/05/5-tips-winning-business-presentation-625x417.png" alt="">
+        <img class="custom-img-1" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
+        <img class="custom-img-2" src="https://docs.cypress.io/img/logo/cypress-logo-dark.png" />
+      </div>
+      <div id="boxLine" class="box-line">
+        <div class="box">
+          <h1>Our Services</h1>
+          <p>Based on customer needs, we will make improvements.</p>
         </div>
-        <div class="nav-buttons">
-            <a href="#" class="nav-button">+90 552 748 03 29 / Contact us</a>
-            <div class="garipKutu">
-              <div class="garipKutu2"></div>
-            </div>
+        <div class="box">
+          <i class='bx bx-cog'></i>
+          <h1>Functionality</h1>
+          <p>You are free to create the desired design with high-functionality graphics.</p>
+        </div>
+        <div class="box">
+          <i class='bx bx-server'></i>
+          <h1>Effectiveness</h1>
+          <p>Our service is highly fast, and you can download any project you have within seconds.</p>
+        </div>
+        <div class="box">
+          <i class='bx bx-scatter-chart' ></i>
+          <h1>Diversity</h1>
+          <p>We have a wide range of beautiful graphic options, each more stunning than the other.</p>
         </div>
       </div>
-      <div class="navbar2">
-        <div class="icons">
-          <i @click="facebook" class='bx bxl-facebook'></i>
-          <i @click="linkedin" class='bx bxl-linkedin'></i>
-          <i @click="twitter" class='bx bxl-twitter' ></i>
+      </div>
+      <div class="second-section">
+        <div id="demo-chart">
+        <!-- data-aos="zoom-in" data-aos-duration="1500" -->
+        <v-chart class="chart" :option="option" />
+
+        <h2>You can click on the type you want below to see different chart types.</h2>
+        <!-- data-aos="fade-right" data-aos-duration="1000" -->
+        <div class="b-place">
+          <button @click="ConvertToBar">Bar Chart</button>
+          <button @click="ConvertToLine">Line Chart</button>
+          <button @click="ConvertToPie">Pie Chart</button>
+          <button @click="ConvertToScatter">Scatter Chart</button>
+          <button @click="ConvertToArea">Area Chart</button>
         </div>
       </div>
-      <div class="homeDiv1">
-        <div class="headerDiv">
-          <h1>Deprem Takip</h1>
-          <h1>Yardım Bildirisi Sistemi </h1>
-        </div>
-        <router-link to="/Login" class="redirectButton">Hayatını Güvenceye Al</router-link>
+      <div id="intro2" class="intro2">
+        <h1>All the diverse and functional graphics are available at Monoxia</h1>
+        <p>
+          Our graphics offer limitless variety! Enjoy adding vibrancy to your project with our carefully designed, eye-catching, and impressive graphics. From low fidelity to high resolution, from minimalist design to vibrant colors, you will find every style and type imaginable. Push the boundaries with our creative graphic options to enhance your visual presentation and captivate your audience. Each button will open the doors to a new world, offering a mesmerizing graphic experience that will leave you in awe. Get ready, as you are just one click away from embarking on an unforgettable visual journey!
+        </p> 
       </div>
-      <div class="homeDiv2"></div>
+      </div>
+      <div class="third-section">
+      <div id="intro3" class="intro3">
+        <h1>Monoxia: Bring Economic Data to Life, Design Your Graphics, and Obtain Impressive Outputs!</h1>
+        <p>
+          Monoxia's user-friendly interface simplifies the process of designing graphics. Users can choose from different types of charts and personalize their graphics with customization options such as colors, labels, and titles. Additionally, they can save their designed graphics in any size and format as output.
+This feature allows users to use their graphics in presentations, reports, or other professional documents. Monoxia facilitates effective visualization and presentation of data, making economic analysis processes easier and helping to achieve more impactful results.
+        </p> 
+      </div>
+      <div class="home-right-bg-section3">
+        <img src="../../public/images/printedchart.jpg" alt="Printed Chart">
+      </div>
+      </div>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
-import 'boxicons';
+import VChart, { THEME_KEY } from "vue-echarts";
+import Footer from '/src/components/Footer.vue';
+import aboutus from '/src/components/Navbar/About.vue';
+// @ts-ignore has no default export.
+import Alertbox from "./Alert/AlertBox.vue";
+import { ref } from "vue";
 
-const twitter = () => {
-  window.location.href = "https://twitter.com/TheOnur_x";
-}
-const facebook = () => {
-  window.location.href = "https://facebook.com/";
-}
-const linkedin = () => {
-  window.location.href = "https://www.linkedin.com/in/onur-ekinci-64576527a/";
-}
 
+window.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY;
+
+  if (scrollPosition > 90) {
+    var lineBox = document.getElementById('boxLine');
+    lineBox?.classList.add("bottomtotop")
+  }
+  if (scrollPosition > 320) {
+    var intro2 = document.getElementById('intro2')
+    intro2?.classList.add("righttoleft")
+  }
+});
+
+const ConvertToBar = () => {
+  option.value = {
+    xAxis: {
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {},
+    series: [
+      {
+        type: 'bar',
+        data: [23, 24, 18, 25, 27, 28, 25]
+      }
+    ]
+  }
+};
+
+const ConvertToLine = () => {
+  option.value = {
+    xAxis: {
+      data: ['A', 'B', 'C']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: [120, 200, 150],
+        type: 'line'
+      }
+    ]
+  };
+};
+
+const ConvertToPie = () => {
+  option.value = {
+    series: [
+      {
+        type: 'pie',
+        data: [
+          // @ts-ignore
+          {
+            value: 335,
+            name: 'Direct Visit'
+          },
+          // @ts-ignore
+          {
+            value: 234,
+            name: 'Union Ad'
+          },
+          // @ts-ignore
+          {
+            value: 1548,
+            name: 'Search Engine'
+          }
+        ]
+      }
+    ]
+  }
+};
+
+const ConvertToScatter = () => {
+  option.value = {
+    xAxis: {
+      data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    },
+    yAxis: {},
+    series: [
+      {
+        type: 'scatter',
+        data: [220, 182, 191, 234, 290, 330, 310]
+      }
+    ]
+  }
+};
+
+const ConvertToArea = () => {
+  option.value = {
+    xAxis: {
+      data: ['A', 'B', 'C', 'D', 'E']
+    },
+    yAxis: {},
+    series: [
+      {
+        data: [10, 22, 28, 23, 19],
+        type: 'line',
+        // @ts-ignore
+        areaStyle: {
+          color: '#09700e',
+          opacity: 0.5
+        }
+      },
+      {
+        data: [25, 14, 23, 35, 10],
+        type: 'line',
+        // @ts-ignore
+        areaStyle: {
+          color: '#0b0970',
+          opacity: 0.5
+        }
+      }
+    ]
+  }
+};
+
+const option = ref({
+   xAxis: {
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {},
+  series: [
+    {
+      type: 'bar',
+      data: [23, 24, 18, 25, 27, 28, 25]
+    }
+  ]
+
+});
 </script>
 
 <style lang="scss" scoped>
-// @import '/public/scss/HomeStyle.scss';
-
-.redirectButton{
-  cursor: pointer;
-}
-
-.bx{
-  cursor: pointer
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Montserrat+Alternates:ital,wght@1,300&family=Poppins:wght@700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-}
-.navbar2{
-  position: absolute;
-  height: 100vh;
-  width: 50px;
-  z-index: 20;
-  right: 0;
-  .icons{
-    margin: 500px 0px 0px -20px;
-  }
-  i{
-    font-size: 25px;
-    border: 1px solid white;
-    border-radius: 100px;
-    padding: 6px;
-    color:white;
-    margin-top: 10px;
-  }
-}
-.bxs-right-arrow-alt{
-  font-size: 40px;
-  color:blue;
-}
-
-.navbar1{
-  position: absolute;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  z-index: 4;
-  .nav-buttons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .nav-button {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-        }
-        .garipKutu{
-          width: 50px;
-          height: 50px;
-          background-color:rgba(25, 165, 225, 0.216);
-        }
-        .garipKutu2{
-          width: 30px;
-          height: 30px;
-          margin: 0 auto;
-          margin-top: 10px;
-          background-color:rgb(19, 141, 193);
-        }
-  .logo img{
-    width: 250px;
-    padding: 40px 0px 0px 40px;
-  }
-}
-.container1{
-  display: flex;
-  align-items: stretch;
-}
-.homeDiv1, .homeDiv2{
-  flex: 1;
-  margin: 0;
-  padding: 0;
-}
-
-.homeDiv1 {
-  .headerDiv{
-    color: hsl(330,14.29%,97.25%);
-    font-size: 40px;
-    text-align: center;
-    font-family: 'Assistant', sans-serif;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    margin: 200px 240px 19px 0px;
-    filter: brightness(1) !important;
-  }
-  .redirectButton{
-    border: 2px solid #0679a2;
-    background: none;
-    padding: 13px;
-    border-radius: 3px;
-    color: white;
-    font-size: 13.5px;
-    margin: 40px 0px 0px 300px !important;
-  }
-  .headerDiv h1:first-of-type{
-    margin-left: -40px;
-  }
-  // .middle-word{
-  //   margin-left: -390px;
-  // }
-  .headerDiv h1:last-of-type{
-    margin-left: 130px;
-  }
-    height: 100vh;
-    background-color: hsl(208.33,85.71%,8.24%);
-    clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
-    margin: 0px -350px 0px 0px;
-    background-image: url(https://images.unsplash.com/photo-1527049979667-990f1d0d8e7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80);
-    background-size: cover;
-  filter: brightness(0.84);
-    background-repeat: no-repeat;
-    z-index: 1;
-}
-
-.homeDiv2 {
-    z-index: -1;
-    height: 100vh;
-    background-color:blue;
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
-    background-image: url(https://images.unsplash.com/photo-1626695840539-a8821cdbcd9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.4);
-}
+@import '/public/scss/HomeStyle.scss';
 </style>
