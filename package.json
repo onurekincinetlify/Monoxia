@@ -20,7 +20,7 @@
     "firebase": "^9.22.1",
     "firebase-admin": "^11.9.0",
     "html2canvas": "^1.4.1",
-    "katex": "^0.16.7",
+    "katex": "^0.16.10",
     "mitt": "^3.0.0",
     "pinia": "^2.0.0-rc.10",
     "sass": "^1.62.0",
